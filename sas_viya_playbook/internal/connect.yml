@@ -1,0 +1,11 @@
+---
+- name: connect
+  become_user: '{{ INSTALL_USER }}'
+  hosts: programming:ComputeServer
+  roles:
+  - role: connect-config
+    when: not ansible_check_mode
+  vars_files:
+  - ../vars.yml
+
+...

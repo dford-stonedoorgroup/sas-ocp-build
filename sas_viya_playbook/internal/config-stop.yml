@@ -1,0 +1,3 @@
+---
+- include: sasgpudcfg-x64_redhat_linux_6-yum.yml sas_task=stop
+  when: sas_packages is defined and sas_packages.updatables is defined and sas_packages.updatables['sas-sasgpudcfg'] is defined

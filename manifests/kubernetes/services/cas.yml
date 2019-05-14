@@ -1,0 +1,24 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sas-viya-cas
+
+spec:
+  selector:
+    app: sas-viya-cas
+  ports:
+    - name: "5570"
+      protocol: TCP
+      port: 5570
+      targetPort: 5570
+    - name: "5571"
+      protocol: TCP
+      port: 5571
+      targetPort: 5571
+    - name: "8777"
+      protocol: TCP
+      port: 8777
+      targetPort: 8777
+  sessionAffinity: None
+  clusterIP: None

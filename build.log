@@ -1,0 +1,124 @@
+[order.go:239] 
+==================================================
+		Build Variables
+==================================================
+'Base Image              ': centos:7
+'Mirror URL              ': http://172.31.2.241:8321
+'Virtual Host            ': myvirtualhost.mycompany.com
+'Docker Namespace        ': davidff
+'Docker Registry         ': docker.io:5000
+'Deployment Type         ': multiple
+'Platform                ': redhat
+'Project Name            ': sas-viya
+'Tag Override            ': 19.04.0-20190430183857-8522290
+'AddOns                  ': []
+'Debug Containers        ': []
+'Worker Count            ': 4
+'Verbose                 ': false
+'Skip Mirror Validation  ': true
+'Skip Docker Validation  ': false
+'Generate Manifests Only ': false
+'Skip Docker Registry    ': "true"
+'Build Only              ':
+- programming
+- httpproxy
+- sas-casserver-primary
+'Timestamp Tag           ': 2019-04-30-18-39-03
+==================================================
+
+
+[order.go:309] Fetching orchestration tool ...
+
+[order.go:309] Reading Software Order Email Zip ...
+
+[order.go:309] Connecting to the Docker daemon  ...
+
+[order.go:309] Reading sitedefault.yml ...
+
+[order.go:309] Skipping loading sitedefault.yml
+
+[order.go:309] Finished connecting to Docker daemon
+
+[order.go:309] Pulling base container image 'centos:7' ...
+
+[order.go:309] Finished reading Software Order Email
+
+[order.go:359] Serving license and entitlement on sas-container-recipes-builder:1976 (172.17.0.2)
+
+[order.go:309] Finished pulling base container image 'centos:7'
+
+[order.go:309] Finished fetching orchestration tool
+
+[order.go:309] Generating playbook for order ...
+
+[order.go:309] Generate playbook output | The build command started
+
+[order.go:309] Generate playbook output | Examining entitled repositories:
+
+[order.go:309] Generate playbook output | 0%.........10%.........20%.........30%.........40%.........50%.........60%.........70%.........80%.........90%.........100%
+
+[order.go:309] Generate playbook output | Loading deployment definition data:
+
+[order.go:309] Generate playbook output | 0%.........10%.........20%.........30%.........40%.........50%.........60%.........70%.........80%.........90%.........100%
+
+[order.go:309] Generate playbook output | Loading application data:
+
+[order.go:309] Generate playbook output | 0%.........10%.........20%.........30%.........40%.........50%.........60%.........70%.........80%.........90%.........100%
+
+[order.go:309] Generate playbook output | The build command completed successfully
+
+[order.go:309] Extracting generated playbook content ...
+
+[order.go:309] Finished extracting and generating playbook for order
+
+[order.go:309] Fetching the list of containers in the order ...
+
+[order.go:309] Finished fetching the container list
+
+[order.go:1282] Creating deployment manifests ...
+
+[order.go:1492] Finished creating deployment manifests
+
+
+[order.go:767] Starting 3 build processes ... (this may take several minutes)
+
+[order.go:769] [TIP] System resource utilization can be seen by using the `docker stats` command.
+
+[order.go:795] Starting Docker build: docker.io:5000/davidff/sas-viya-httpproxy:19.04.0-20190430183857-8522290 ... 
+
+[order.go:795] Starting Docker build: docker.io:5000/davidff/sas-viya-programming:19.04.0-20190430183857-8522290 ... 
+
+[order.go:795] Starting Docker build: docker.io:5000/davidff/sas-viya-sas-casserver-primary:19.04.0-20190430183857-8522290 ... 
+
+[order.go:795] Skipping pushing docker.io:5000/davidff/sas-viya-httpproxy:19.04.0-20190430183857-8522290 to Docker registry
+
+[order.go:795] Skipping pushing docker.io:5000/davidff/sas-viya-sas-casserver-primary:19.04.0-20190430183857-8522290 to Docker registry
+
+[order.go:795] Skipping pushing docker.io:5000/davidff/sas-viya-programming:19.04.0-20190430183857-8522290 to Docker registry
+
+[order.go:1609] 
+-----------------------  Summary  ( 32m21s, 33.43 GB ) -----------------------
+
+[order.go:1623] -------------------------------------------------------------------------------
+
+[order.go:1679] 
+Kubernetes manifests have been created: builds/multiple-2019-04-30-18-39-03/manifests/
+That directory is mapped to:            builds/multiple/manifests
+
+
+[order.go:1680] 
+To deploy a new environment run the below commands
+
+Create the Kuberenetes namespace:
+
+kubectl apply -f builds/multiple/manifests/kubernetes/namespace/sas-viya.yml
+
+Then create the following Kubernetes objects:
+
+kubectl -n sas-viya apply -f builds/multiple/manifests/kubernetes/ingress/sas-viya.yml && \
+kubectl -n sas-viya apply -f builds/multiple/manifests/kubernetes/configmaps && \
+kubectl -n sas-viya apply -f builds/multiple/manifests/kubernetes/secrets && \
+kubectl -n sas-viya apply -f builds/multiple/manifests/kubernetes/services && \
+kubectl -n sas-viya apply -f builds/multiple/manifests/kubernetes/deployments
+
+

@@ -1,0 +1,18 @@
+---
+# Configure and start
+- include: configure-and-start.yml
+
+# Deploy CAS TLS certs across all hosts
+- include: deploy-cascerts.yml
+
+# Configures CAS
+- include: deploy-cas.yml
+
+# Configures SAS Foundation and SAS Studio
+- include: deploy-foundation.yml
+
+# Start SAS Foundation services
+- include: services-foundation.yml service_action=started
+
+# See about configuring and starting httpd
+- include: configure-and-start-httpd.yml

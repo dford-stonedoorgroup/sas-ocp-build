@@ -1,0 +1,5 @@
+---
+- include: stop-all.yml
+- include: install-packages.yml
+- include: remove-obsolete.yml
+- include: safety-stop.yml

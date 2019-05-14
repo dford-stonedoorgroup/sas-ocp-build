@@ -1,0 +1,555 @@
+---
+############################################################################
+## User Input Required
+############################################################################
+# The path and name of the sid file on the Ansible machine.
+# This will be copied out to all nodes
+sasenv_license: "{% if LICENSE_FILENAME | default ('') %}{{ orchestration_root|default(playbook_dir) }}/{{ LICENSE_FILENAME }}{% else %}Undefined{% endif %}"
+
+# The path and name of the composite license file on the Ansible machine.
+sasenv_composite_license: "{% if LICENSE_COMPOSITE_FILENAME | default ('') %}{{ orchestration_root|default(playbook_dir) }}/{{ LICENSE_COMPOSITE_FILENAME }}{% else %}Undefined{% endif %}"
+
+############################################################################
+
+# SAS METAREPO certificate details #
+METAREPO_CERT_SOURCE: "{{ playbook_dir }}"
+METAREPO_CERT_HOME: "/etc/pki/sas/private"
+METAREPO_CERT_CA: SAS_CA_Certificate.pem
+METAREPO_CERT_CLIENT: entitlement_certificate.pem
+ENTITLEMENT_PATH: "{{ orchestration_root|default(playbook_dir) }}/{{ METAREPO_CERT_CLIENT }}"
+SAS_CERT_PATH: "{{ orchestration_root|default(playbook_dir) }}/{{ METAREPO_CERT_CA }}"
+
+# SAS METAREPO Install details #
+METAREPO_INSTALL: "{{ REPOSITORY_WAREHOUSE == 'https://ses.sas.download/ses/' }}"
+METAREPO_URL: "https://ses.sas.download/ses/repos/meta-repo/"
+METAREPO_RPM: "sas-meta-repo.rpm"
+METAREPO_SOE_ORDERABLE: '"sas-connect-104-x64_redhat_linux_6-yum" "sas-db2-104-x64_redhat_linux_6-yum" "sas-dmdq-104-x64_redhat_linux_6-yum" "sas-econometr-104-x64_redhat_linux_6-yum" "sas-forecast-104-x64_redhat_linux_6-yum" "sas-hive-104-x64_redhat_linux_6-yum" "sas-iml1-104-x64_redhat_linux_6-yum" "sas-impala-104-x64_redhat_linux_6-yum" "sas-indbhive-104-x64_redhat_linux_6-yum" "sas-indbtera-104-x64_redhat_linux_6-yum" "sas-jdbc-104-x64_redhat_linux_6-yum" "sas-mlrning-104-x64_redhat_linux_6-yum" "sas-mssqlsvr-104-x64_redhat_linux_6-yum" "sas-mysql-104-x64_redhat_linux_6-yum" "sas-odbc-104-x64_redhat_linux_6-yum" "sas-opt-104-x64_redhat_linux_6-yum" "sas-oracle-104-x64_redhat_linux_6-yum" "sas-pcfile-104-x64_redhat_linux_6-yum" "sas-postgres-104-x64_redhat_linux_6-yum" "sas-qc1-104-x64_redhat_linux_6-yum" "sas-redshift-104-x64_redhat_linux_6-yum" "sas-sapase-104-x64_redhat_linux_6-yum" "sas-saphana-104-x64_redhat_linux_6-yum" "sas-statviya-104-x64_redhat_linux_6-yum" "sas-teradata-104-x64_redhat_linux_6-yum" "sas-txtminara-104-x64_redhat_linux_6-yum" "sas-txtmincro-104-x64_redhat_linux_6-yum" "sas-txtminczh-104-x64_redhat_linux_6-yum" "sas-txtmindan-104-x64_redhat_linux_6-yum" "sas-txtmindut-104-x64_redhat_linux_6-yum" "sas-txtminfar-104-x64_redhat_linux_6-yum" "sas-txtminfin-104-x64_redhat_linux_6-yum" "sas-txtminfre-104-x64_redhat_linux_6-yum" "sas-txtminger-104-x64_redhat_linux_6-yum" "sas-txtmingrk-104-x64_redhat_linux_6-yum" "sas-txtminheb-104-x64_redhat_linux_6-yum" "sas-txtminhin-104-x64_redhat_linux_6-yum" "sas-txtminhun-104-x64_redhat_linux_6-yum" "sas-txtminind-104-x64_redhat_linux_6-yum" "sas-txtminita-104-x64_redhat_linux_6-yum" "sas-txtminjap-104-x64_redhat_linux_6-yum" "sas-txtminkor-104-x64_redhat_linux_6-yum" "sas-txtminnor-104-x64_redhat_linux_6-yum" "sas-txtminpol-104-x64_redhat_linux_6-yum" "sas-txtminpor-104-x64_redhat_linux_6-yum" "sas-txtminrom-104-x64_redhat_linux_6-yum" "sas-txtminrus-104-x64_redhat_linux_6-yum" "sas-txtminspa-104-x64_redhat_linux_6-yum" "sas-txtminsvk-104-x64_redhat_linux_6-yum" "sas-txtminsvn-104-x64_redhat_linux_6-yum" "sas-txtminswe-104-x64_redhat_linux_6-yum" "sas-txtmintag-104-x64_redhat_linux_6-yum" "sas-txtmintha-104-x64_redhat_linux_6-yum" "sas-txtmintur-104-x64_redhat_linux_6-yum" "sas-txtminvie-104-x64_redhat_linux_6-yum" "sas-txtminzho-104-x64_redhat_linux_6-yum" "sas-va-104-x64_redhat_linux_6-yum" "sas-vertica-104-x64_redhat_linux_6-yum" "sas-vtxtan-104-x64_redhat_linux_6-yum"'
+METAREPO_FORCE_CERTS: "{{ REPOSITORY_WAREHOUSE == 'https://ses.sas.download/ses/' }}"
+
+# Ordered software from the Software Order Email
+sasenv_soe_groupinstall: '"SAS Data Connector to DB2" "SAS Data Connect Accelerator for Hadoop" "SAS Data Connect Accelerator for Teradata" "SAS Data Connector to SAP Hana" "SAS Data Connector to Hadoop" "SAS Data Connector to Impala" "SAS Data Connector to JDBC" "SAS Data Connector to Microsoft SQL Server" "SAS Data Connector to MySQL" "SAS Data Connector to ODBC" "SAS Data Connector to Oracle" "SAS Data Connector to PC Files" "SAS Data Connector to PostgreSQL" "SAS Data Connector to Amazon Redshift" "SAS Data Connector to Teradata" "SAS Data Connector to Vertica" "SAS/CONNECT" "SAS/ACCESS Interface to DB2 (SPRE)" "SAS Foundation for SAS Data Quality" "YUM Group for SAS Data Quality Accelerator for Teradata (SPRE)" "CAS for SAS Data Quality" "SAS Foundation for SAS Econometrics" "CAS for SAS Econometrics" "SAS Enterprise Miner" "ASTORE for EMBSCOREENG" "SAS Econometrics" "SAS Foundation for SAS Visual Forecasting" "CAS for SAS Visual Forecasting" "Gold Layer YUM Group for SPRE" "CUDA Library Support for SAS" "SAS/GRAPH" "SAS Network Algorithms" "SAS/ACCESS Interface to Hadoop (SPRE)" "SAS In-Database Technologies for Hadoop Map Reduce JAR File" "SAS High Performance Procedures" "SAS/IML" "SAS/ACCESS Interface to Impala (SPRE)" "SAS/ACCESS Interface to JDBC (SPRE)" "SAS/GRAPH" "SAS Machine Learning" "CAS for SAS Machine Learning" "SAS/ACCESS Interface to Microsoft SQL Server (SPRE)" "SAS/ACCESS Interface to MySQL (SPRE)" "SAS/ACCESS Interface to ODBC (SPRE)" "SAS Foundation for SAS Optimization" "CAS for SAS Optimization" "SAS/OR" "SAS/ACCESS Interface to Oracle (SPRE)" "SAS/ACCESS Interface to PC Files (SPRE)" "SAS/ACCESS Interface to PostgreSQL (SPRE)" "SAS/QC" "SAS/ACCESS Interface to Amazon Redshift (SPRE)" "SAS/ACCESS Interface to SAP ASE (SPRE)" "SAS/ACCESS Interface to SAP Hana (SPRE)" "SAS Program Runtime Environment" "SAS Statistics" "SAS/STAT" "CAS for SAS Statistics" "SAS/ACCESS Interface to Teradata (SPRE)" "SAS Text Analytics for Arabic" "SAS Text Analytics for Croatian" "SAS Text Analytics for Czech" "SAS Text Analytics for Danish" "SAS Text Analytics for Dutch" "SAS Text Analytics for Farsi" "SAS Text Analytics for Finnish" "SAS Text Analytics for French" "SAS Text Analytics for German" "SAS Text Analytics for Greek" "SAS Text Analytics for Hebrew" "SAS Text Analytics for Hindi" "SAS Text Analytics for Hungarian" "SAS Text Analytics for Indonesian" "SAS Text Analytics for Italian" "SAS Text Analytics for Japanese" "SAS Text Analytics for Korean" "SAS Text Analytics for Norwegian" "SAS Text Analytics for Polish" "SAS Text Analytics for Portuguese" "SAS Text Analytics for Romanian" "SAS Text Analytics for Russian" "SAS Text Analytics for Spanish" "SAS Text Analytics for Slovakian" "SAS Text Analytics for Slovenian" "SAS Text Analytics for Swedish" "SAS Text Analytics for Tagalog" "SAS Text Analytics for Thai" "SAS Text Analytics for Turkish" "SAS Text Analytics for Vietnamese" "SAS Text Analytics for Chinese" "CAS for SAS Visual Analytics" "SAS/ACCESS Interface to Vertica (SPRE)" "SAS Visual Text Analytics" "CAS for SAS Visual Text Analytics" "SAS Configuration for Spawner"'
+
+
+SAS_REPO:
+  connect-104-x64_redhat_linux_6-yum:
+    name: connect-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/connect/104/connect-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  db2-104-x64_redhat_linux_6-yum:
+    name: db2-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/db2/104/db2-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  dmdq-104-x64_redhat_linux_6-yum:
+    name: dmdq-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/dmdq/104/dmdq-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  econometr-104-x64_redhat_linux_6-yum:
+    name: econometr-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/econometr/104/econometr-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  forecast-104-x64_redhat_linux_6-yum:
+    name: forecast-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/forecast/104/forecast-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  hive-104-x64_redhat_linux_6-yum:
+    name: hive-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/hive/104/hive-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  iml1-104-x64_redhat_linux_6-yum:
+    name: iml1-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/iml1/104/iml1-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  impala-104-x64_redhat_linux_6-yum:
+    name: impala-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/impala/104/impala-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  indbhive-104-x64_redhat_linux_6-yum:
+    name: indbhive-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/indbhive/104/indbhive-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  indbtera-104-x64_redhat_linux_6-yum:
+    name: indbtera-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/indbtera/104/indbtera-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  jdbc-104-x64_redhat_linux_6-yum:
+    name: jdbc-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/jdbc/104/jdbc-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  mlrning-104-x64_redhat_linux_6-yum:
+    name: mlrning-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/mlrning/104/mlrning-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  mssqlsvr-104-x64_redhat_linux_6-yum:
+    name: mssqlsvr-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/mssqlsvr/104/mssqlsvr-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  mysql-104-x64_redhat_linux_6-yum:
+    name: mysql-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/mysql/104/mysql-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  odbc-104-x64_redhat_linux_6-yum:
+    name: odbc-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/odbc/104/odbc-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  opt-104-x64_redhat_linux_6-yum:
+    name: opt-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/opt/104/opt-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  oracle-104-x64_redhat_linux_6-yum:
+    name: oracle-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/oracle/104/oracle-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  pcfile-104-x64_redhat_linux_6-yum:
+    name: pcfile-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/pcfile/104/pcfile-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  qc1-104-x64_redhat_linux_6-yum:
+    name: qc1-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/qc1/104/qc1-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  redshift-104-x64_redhat_linux_6-yum:
+    name: redshift-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/redshift/104/redshift-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  sapase-104-x64_redhat_linux_6-yum:
+    name: sapase-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/sapase/104/sapase-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  saphana-104-x64_redhat_linux_6-yum:
+    name: saphana-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/saphana/104/saphana-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  statviya-104-x64_redhat_linux_6-yum:
+    name: statviya-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/statviya/104/statviya-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  teradata-104-x64_redhat_linux_6-yum:
+    name: teradata-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/teradata/104/teradata-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminara-104-x64_redhat_linux_6-yum:
+    name: txtminara-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminara/104/txtminara-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtmincro-104-x64_redhat_linux_6-yum:
+    name: txtmincro-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtmincro/104/txtmincro-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminczh-104-x64_redhat_linux_6-yum:
+    name: txtminczh-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminczh/104/txtminczh-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtmindan-104-x64_redhat_linux_6-yum:
+    name: txtmindan-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtmindan/104/txtmindan-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtmindut-104-x64_redhat_linux_6-yum:
+    name: txtmindut-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtmindut/104/txtmindut-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminfar-104-x64_redhat_linux_6-yum:
+    name: txtminfar-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminfar/104/txtminfar-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminfin-104-x64_redhat_linux_6-yum:
+    name: txtminfin-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminfin/104/txtminfin-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminfre-104-x64_redhat_linux_6-yum:
+    name: txtminfre-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminfre/104/txtminfre-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminger-104-x64_redhat_linux_6-yum:
+    name: txtminger-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminger/104/txtminger-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtmingrk-104-x64_redhat_linux_6-yum:
+    name: txtmingrk-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtmingrk/104/txtmingrk-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminheb-104-x64_redhat_linux_6-yum:
+    name: txtminheb-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminheb/104/txtminheb-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminhin-104-x64_redhat_linux_6-yum:
+    name: txtminhin-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminhin/104/txtminhin-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminhun-104-x64_redhat_linux_6-yum:
+    name: txtminhun-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminhun/104/txtminhun-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminind-104-x64_redhat_linux_6-yum:
+    name: txtminind-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminind/104/txtminind-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminita-104-x64_redhat_linux_6-yum:
+    name: txtminita-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminita/104/txtminita-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminjap-104-x64_redhat_linux_6-yum:
+    name: txtminjap-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminjap/104/txtminjap-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminkor-104-x64_redhat_linux_6-yum:
+    name: txtminkor-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminkor/104/txtminkor-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminnor-104-x64_redhat_linux_6-yum:
+    name: txtminnor-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminnor/104/txtminnor-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminpol-104-x64_redhat_linux_6-yum:
+    name: txtminpol-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminpol/104/txtminpol-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminpor-104-x64_redhat_linux_6-yum:
+    name: txtminpor-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminpor/104/txtminpor-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminrom-104-x64_redhat_linux_6-yum:
+    name: txtminrom-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminrom/104/txtminrom-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminrus-104-x64_redhat_linux_6-yum:
+    name: txtminrus-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminrus/104/txtminrus-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminspa-104-x64_redhat_linux_6-yum:
+    name: txtminspa-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminspa/104/txtminspa-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminsvk-104-x64_redhat_linux_6-yum:
+    name: txtminsvk-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminsvk/104/txtminsvk-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminsvn-104-x64_redhat_linux_6-yum:
+    name: txtminsvn-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminsvn/104/txtminsvn-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminswe-104-x64_redhat_linux_6-yum:
+    name: txtminswe-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminswe/104/txtminswe-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtmintag-104-x64_redhat_linux_6-yum:
+    name: txtmintag-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtmintag/104/txtmintag-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtmintha-104-x64_redhat_linux_6-yum:
+    name: txtmintha-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtmintha/104/txtmintha-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtmintur-104-x64_redhat_linux_6-yum:
+    name: txtmintur-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtmintur/104/txtmintur-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminvie-104-x64_redhat_linux_6-yum:
+    name: txtminvie-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminvie/104/txtminvie-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  txtminzho-104-x64_redhat_linux_6-yum:
+    name: txtminzho-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/txtminzho/104/txtminzho-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  va-104-x64_redhat_linux_6-yum:
+    name: va-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/va/104/va-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  vertica-104-x64_redhat_linux_6-yum:
+    name: vertica-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/vertica/104/vertica-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0
+  vtxtan-104-x64_redhat_linux_6-yum:
+    name: vtxtan-104-x64_redhat_linux_6-yum
+    baseurl: '{{ REPOSITORY_WAREHOUSE }}repos/shipped/vtxtan/104/vtxtan-104-x64_redhat_linux_6-yum'
+    enabled: 1
+    gpgcheck: 0
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-SAS-9.x
+    sslcacert: 0
+    sslclientcert: 0
+    sslverify: 0

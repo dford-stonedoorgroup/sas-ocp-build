@@ -1,0 +1,7 @@
+---
+hadoop_scratch_folder: /tmp/hadoop_deployment
+hadoop_exclude_jars: derby,hadoop-0.20.2-dev-core.jar
+filter_by: latest
+tracer_timeout: 900
+# possible values are either blank or --winplatform defaulting to blank value
+winplatform:

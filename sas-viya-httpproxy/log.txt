@@ -1,0 +1,910 @@
+[container.go:265] Container config:
+{[80:80 443:443] [] [] [tini sas-prerequisites httpproxy cloud-config] [log=/opt/sas/viya/config/var/log] {[memory=1024Mi] [memory=250Mi]}}
+
+[container.go:305] map[]
+
+[container.go:332] ----- Starting Docker Build -----
+
+[container.go:391] &{Step 1/18 : FROM centos:7  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> 9f38484d220f  <nil>}
+
+[container.go:391] &{Step 2/18 : ARG PLATFORM  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 44826e7fa765  <nil>}
+
+[container.go:391] &{Removing intermediate container 44826e7fa765  <nil>}
+
+[container.go:391] &{---> 9bf07cd72f71  <nil>}
+
+[container.go:391] &{Step 3/18 : ARG PLAYBOOK_SRV  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 86cab0279e71  <nil>}
+
+[container.go:391] &{Removing intermediate container 86cab0279e71  <nil>}
+
+[container.go:391] &{---> d663cc2c1977  <nil>}
+
+[container.go:391] &{Step 4/18 : ENV PLATFORM=$PLATFORM ANSIBLE_CONFIG=/ansible/ansible.cfg ANSIBLE_CONTAINER=true  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in a5f15dd5cdf2  <nil>}
+
+[container.go:391] &{Removing intermediate container a5f15dd5cdf2  <nil>}
+
+[container.go:391] &{---> 4823c8a8ba62  <nil>}
+
+[container.go:391] &{Step 5/18 : RUN mkdir --parents /opt/sas/viya/home/{lib/envesntl,bin}  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 1d873ef33605  <nil>}
+
+[container.go:391] &{Removing intermediate container 1d873ef33605  <nil>}
+
+[container.go:391] &{---> 2ab5c04d143c  <nil>}
+
+[container.go:391] &{Step 6/18 : RUN if [ "$PLATFORM" = "redhat" ]; then         yum install --assumeyes ansible; 		rm -rf /root/.cache /var/cache/yum; 		echo -e "minrate=1" >> /etc/yum.conf; 		echo -e "timeout=300" >> /etc/yum.conf;     elif [ "$PLATFORM" = "suse" ]; then         zypper install --no-confirm ansible curl && rm -rf /var/cache/zypp; 	else 		echo -e "Platform $PLATFORM not supported"; 		exit 1;     fi  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in b7919854a96e  <nil>}
+
+[container.go:391] &{Loaded plugins: fastestmirror, ovl  <nil>}
+
+[container.go:391] &{Determining fastest mirrors  <nil>}
+
+[container.go:391] &{* base: mirror.umd.edu  <nil>}
+
+[container.go:391] &{* extras: mirror.math.princeton.edu  <nil>}
+
+[container.go:391] &{* updates: mirror.datto.com  <nil>}
+
+[container.go:391] &{Resolving Dependencies  <nil>}
+
+[container.go:391] &{--> Running transaction check  <nil>}
+
+[container.go:391] &{---> Package ansible.noarch 0:2.4.2.0-2.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: sshpass for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python2-jmespath for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-six for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-setuptools for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-passlib for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-paramiko for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-jinja2 for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-httplib2 for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-cryptography for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: PyYAML for package: ansible-2.4.2.0-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Running transaction check  <nil>}
+
+[container.go:391] &{---> Package PyYAML.x86_64 0:3.10-11.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: libyaml-0.so.2()(64bit) for package: PyYAML-3.10-11.el7.x86_64  <nil>}
+
+[container.go:391] &{---> Package python-httplib2.noarch 0:0.9.2-1.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python-jinja2.noarch 0:2.7.2-2.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-babel >= 0.8 for package: python-jinja2-2.7.2-2.el7.noarch  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-markupsafe for package: python-jinja2-2.7.2-2.el7.noarch  <nil>}
+
+[container.go:391] &{---> Package python-paramiko.noarch 0:2.1.1-9.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python2-pyasn1 for package: python-paramiko-2.1.1-9.el7.noarch  <nil>}
+
+[container.go:391] &{---> Package python-passlib.noarch 0:1.6.5-2.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python-setuptools.noarch 0:0.9.8-7.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-backports-ssl_match_hostname for package: python-setuptools-0.9.8-7.el7.noarch  <nil>}
+
+[container.go:391] &{---> Package python-six.noarch 0:1.9.0-2.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python2-cryptography.x86_64 0:1.7.2-2.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-idna >= 2.0 for package: python2-cryptography-1.7.2-2.el7.x86_64  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-cffi >= 1.4.1 for package: python2-cryptography-1.7.2-2.el7.x86_64  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-ipaddress for package: python2-cryptography-1.7.2-2.el7.x86_64  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-enum34 for package: python2-cryptography-1.7.2-2.el7.x86_64  <nil>}
+
+[container.go:391] &{--> Processing Dependency: openssl for package: python2-cryptography-1.7.2-2.el7.x86_64  <nil>}
+
+[container.go:391] &{---> Package python2-jmespath.noarch 0:0.9.0-3.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package sshpass.x86_64 0:1.06-2.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Running transaction check  <nil>}
+
+[container.go:391] &{---> Package libyaml.x86_64 0:0.1.4-11.el7_0 will be installed  <nil>}
+
+[container.go:391] &{---> Package openssl.x86_64 1:1.0.2k-16.el7_6.1 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: openssl-libs(x86-64) = 1:1.0.2k-16.el7_6.1 for package: 1:openssl-1.0.2k-16.el7_6.1.x86_64  <nil>}
+
+[container.go:391] &{--> Processing Dependency: make for package: 1:openssl-1.0.2k-16.el7_6.1.x86_64  <nil>}
+
+[container.go:391] &{---> Package python-babel.noarch 0:0.9.6-8.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python-backports-ssl_match_hostname.noarch 0:3.5.0.1-1.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-backports for package: python-backports-ssl_match_hostname-3.5.0.1-1.el7.noarch  <nil>}
+
+[container.go:391] &{---> Package python-cffi.x86_64 0:1.6.0-5.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-pycparser for package: python-cffi-1.6.0-5.el7.x86_64  <nil>}
+
+[container.go:391] &{---> Package python-enum34.noarch 0:1.0.4-1.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python-idna.noarch 0:2.4-1.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python-ipaddress.noarch 0:1.0.16-2.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python-markupsafe.x86_64 0:0.11-10.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python2-pyasn1.noarch 0:0.1.9-7.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Running transaction check  <nil>}
+
+[container.go:391] &{---> Package make.x86_64 1:3.82-23.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package openssl-libs.x86_64 1:1.0.2k-16.el7 will be updated  <nil>}
+
+[container.go:391] &{---> Package openssl-libs.x86_64 1:1.0.2k-16.el7_6.1 will be an update  <nil>}
+
+[container.go:391] &{---> Package python-backports.x86_64 0:1.0-8.el7 will be installed  <nil>}
+
+[container.go:391] &{---> Package python-pycparser.noarch 0:2.14-1.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Processing Dependency: python-ply for package: python-pycparser-2.14-1.el7.noarch  <nil>}
+
+[container.go:391] &{--> Running transaction check  <nil>}
+
+[container.go:391] &{---> Package python-ply.noarch 0:3.4-11.el7 will be installed  <nil>}
+
+[container.go:391] &{--> Finished Dependency Resolution  <nil>}
+
+[container.go:391] &{Dependencies Resolved  <nil>}
+
+[container.go:391] &{================================================================================
+ Package                             Arch   Version               Repository
+                                                                           Size
+================================================================================
+Installing:
+ ansible                             noarch 2.4.2.0-2.el7         extras  7.6 M
+Installing for dependencies:
+ PyYAML                              x86_64 3.10-11.el7           base    153 k
+ libyaml                             x86_64 0.1.4-11.el7_0        base     55 k
+ make                                x86_64 1:3.82-23.el7         base    420 k
+ openssl                             x86_64 1:1.0.2k-16.el7_6.1   updates 493 k
+ python-babel                        noarch 0.9.6-8.el7           base    1.4 M
+ python-backports                    x86_64 1.0-8.el7             base    5.8 k
+ python-backports-ssl_match_hostname noarch 3.5.0.1-1.el7         base     13 k
+ python-cffi                         x86_64 1.6.0-5.el7           base    218 k
+ python-enum34                       noarch 1.0.4-1.el7           base     52 k
+ python-httplib2                     noarch 0.9.2-1.el7           extras  115 k
+ python-idna                         noarch 2.4-1.el7             base     94 k
+ python-ipaddress                    noarch 1.0.16-2.el7          base     34 k
+ python-jinja2                       noarch 2.7.2-2.el7           base    515 k
+ python-markupsafe                   x86_64 0.11-10.el7           base     25 k
+ python-paramiko                     noarch 2.1.1-9.el7           updates 269 k
+ python-passlib                      noarch 1.6.5-2.el7           extras  488 k
+ python-ply                          noarch 3.4-11.el7            base    123 k
+ python-pycparser                    noarch 2.14-1.el7            base    104 k
+ python-setuptools                   noarch 0.9.8-7.el7           base    397 k
+ python-six                          noarch 1.9.0-2.el7           base     29 k
+ python2-cryptography                x86_64 1.7.2-2.el7           base    502 k
+ python2-jmespath                    noarch 0.9.0-3.el7           extras   39 k
+ python2-pyasn1                      noarch 0.1.9-7.el7           base    100 k
+ sshpass                             x86_64 1.06-2.el7            extras   21 k
+Updating for dependencies:
+ openssl-libs                        x86_64 1:1.0.2k-16.el7_6.1   updates 1.2 M
+
+Transaction Summary
+================================================================================
+Install  1 Package  (+24 Dependent packages)
+Upgrade             (  1 Dependent package)  <nil>}
+
+[container.go:391] &{Total download size: 14 M  <nil>}
+
+[container.go:391] &{Downloading packages:  <nil>}
+
+[container.go:391] &{Delta RPMs disabled because /usr/bin/applydeltarpm not installed.  <nil>}
+
+[container.go:391] &{[91mwarning: /var/cache/yum/x86_64/7/base/packages/libyaml-0.1.4-11.el7_0.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY
+[0m  <nil>}
+
+[container.go:391] &{Public key for libyaml-0.1.4-11.el7_0.x86_64.rpm is not installed  <nil>}
+
+[container.go:391] &{Public key for ansible-2.4.2.0-2.el7.noarch.rpm is not installed  <nil>}
+
+[container.go:391] &{Public key for openssl-1.0.2k-16.el7_6.1.x86_64.rpm is not installed  <nil>}
+
+[container.go:391] &{--------------------------------------------------------------------------------  <nil>}
+
+[container.go:391] &{Total                                               18 MB/s |  14 MB  00:00  <nil>}
+
+[container.go:391] &{Retrieving key from file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7  <nil>}
+
+[container.go:391] &{[91mImporting GPG key 0xF4A80EB5:
+ Userid     : "CentOS-7 Key (CentOS 7 Official Signing Key) <security@centos.org>"
+ Fingerprint: 6341 ab27 53d7 8a78 a7c2 7bb1 24c6 a8a7 f4a8 0eb5
+ Package    : centos-release-7-6.1810.2.el7.centos.x86_64 (@CentOS)
+ From       : /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+[0m  <nil>}
+
+[container.go:391] &{Running transaction check  <nil>}
+
+[container.go:391] &{Running transaction test  <nil>}
+
+[container.go:391] &{Transaction test succeeded  <nil>}
+
+[container.go:391] &{Running transaction  <nil>}
+
+[container.go:391] &{Installing : python2-pyasn1-0.1.9-7.el7.noarch                           1/27  <nil>}
+
+[container.go:391] &{Installing : python-ipaddress-1.0.16-2.el7.noarch                        2/27  <nil>}
+
+[container.go:391] &{Updating   : 1:openssl-libs-1.0.2k-16.el7_6.1.x86_64                     3/27  <nil>}
+
+[container.go:391] &{Installing : python-six-1.9.0-2.el7.noarch                               4/27  <nil>}
+
+[container.go:391] &{Installing : 1:make-3.82-23.el7.x86_64                                   5/27  <nil>}
+
+[container.go:391] &{Installing : 1:openssl-1.0.2k-16.el7_6.1.x86_64                          6/27  <nil>}
+
+[container.go:391] &{Installing : python-httplib2-0.9.2-1.el7.noarch                          7/27  <nil>}
+
+[container.go:391] &{Installing : python-enum34-1.0.4-1.el7.noarch                            8/27  <nil>}
+
+[container.go:391] &{Installing : libyaml-0.1.4-11.el7_0.x86_64                               9/27  <nil>}
+
+[container.go:391] &{Installing : PyYAML-3.10-11.el7.x86_64                                  10/27  <nil>}
+
+[container.go:391] &{Installing : python-backports-1.0-8.el7.x86_64                          11/27  <nil>}
+
+[container.go:391] &{Installing : python-backports-ssl_match_hostname-3.5.0.1-1.el7.noarch   12/27  <nil>}
+
+[container.go:391] &{Installing : python-setuptools-0.9.8-7.el7.noarch                       13/27  <nil>}
+
+[container.go:391] &{Installing : python-babel-0.9.6-8.el7.noarch                            14/27  <nil>}
+
+[container.go:391] &{Installing : python-passlib-1.6.5-2.el7.noarch                          15/27  <nil>}
+
+[container.go:391] &{Installing : python-ply-3.4-11.el7.noarch                               16/27  <nil>}
+
+[container.go:391] &{Installing : python-pycparser-2.14-1.el7.noarch                         17/27  <nil>}
+
+[container.go:391] &{Installing : python-cffi-1.6.0-5.el7.x86_64                             18/27  <nil>}
+
+[container.go:391] &{Installing : python-markupsafe-0.11-10.el7.x86_64                       19/27  <nil>}
+
+[container.go:391] &{Installing : python-jinja2-2.7.2-2.el7.noarch                           20/27  <nil>}
+
+[container.go:391] &{Installing : python-idna-2.4-1.el7.noarch                               21/27  <nil>}
+
+[container.go:391] &{Installing : python2-cryptography-1.7.2-2.el7.x86_64                    22/27  <nil>}
+
+[container.go:391] &{Installing : python-paramiko-2.1.1-9.el7.noarch                         23/27  <nil>}
+
+[container.go:391] &{Installing : sshpass-1.06-2.el7.x86_64                                  24/27  <nil>}
+
+[container.go:391] &{Installing : python2-jmespath-0.9.0-3.el7.noarch                        25/27  <nil>}
+
+[container.go:391] &{Installing : ansible-2.4.2.0-2.el7.noarch                               26/27  <nil>}
+
+[container.go:391] &{Cleanup    : 1:openssl-libs-1.0.2k-16.el7.x86_64                        27/27  <nil>}
+
+[container.go:391] &{Verifying  : python-jinja2-2.7.2-2.el7.noarch                            1/27  <nil>}
+
+[container.go:391] &{Verifying  : python-backports-ssl_match_hostname-3.5.0.1-1.el7.noarch    2/27  <nil>}
+
+[container.go:391] &{Verifying  : python2-jmespath-0.9.0-3.el7.noarch                         3/27  <nil>}
+
+[container.go:391] &{Verifying  : sshpass-1.06-2.el7.x86_64                                   4/27  <nil>}
+
+[container.go:391] &{Verifying  : python-setuptools-0.9.8-7.el7.noarch                        5/27  <nil>}
+
+[container.go:391] &{Verifying  : python-six-1.9.0-2.el7.noarch                               6/27  <nil>}
+
+[container.go:391] &{Verifying  : python-idna-2.4-1.el7.noarch                                7/27  <nil>}
+
+[container.go:391] &{Verifying  : python-markupsafe-0.11-10.el7.x86_64                        8/27  <nil>}
+
+[container.go:391] &{Verifying  : 1:openssl-1.0.2k-16.el7_6.1.x86_64                          9/27  <nil>}
+
+[container.go:391] &{Verifying  : python-ply-3.4-11.el7.noarch                               10/27  <nil>}
+
+[container.go:391] &{Verifying  : python-passlib-1.6.5-2.el7.noarch                          11/27  <nil>}
+
+[container.go:391] &{Verifying  : python-paramiko-2.1.1-9.el7.noarch                         12/27  <nil>}
+
+[container.go:391] &{Verifying  : python-babel-0.9.6-8.el7.noarch                            13/27  <nil>}
+
+[container.go:391] &{Verifying  : python-backports-1.0-8.el7.x86_64                          14/27  <nil>}
+
+[container.go:391] &{Verifying  : python-cffi-1.6.0-5.el7.x86_64                             15/27  <nil>}
+
+[container.go:391] &{Verifying  : 1:openssl-libs-1.0.2k-16.el7_6.1.x86_64                    16/27  <nil>}
+
+[container.go:391] &{Verifying  : python-pycparser-2.14-1.el7.noarch                         17/27  <nil>}
+
+[container.go:391] &{Verifying  : libyaml-0.1.4-11.el7_0.x86_64                              18/27  <nil>}
+
+[container.go:391] &{Verifying  : ansible-2.4.2.0-2.el7.noarch                               19/27  <nil>}
+
+[container.go:391] &{Verifying  : python-ipaddress-1.0.16-2.el7.noarch                       20/27  <nil>}
+
+[container.go:391] &{Verifying  : python-enum34-1.0.4-1.el7.noarch                           21/27  <nil>}
+
+[container.go:391] &{Verifying  : python-httplib2-0.9.2-1.el7.noarch                         22/27  <nil>}
+
+[container.go:391] &{Verifying  : python2-pyasn1-0.1.9-7.el7.noarch                          23/27  <nil>}
+
+[container.go:391] &{Verifying  : PyYAML-3.10-11.el7.x86_64                                  24/27  <nil>}
+
+[container.go:391] &{Verifying  : 1:make-3.82-23.el7.x86_64                                  25/27  <nil>}
+
+[container.go:391] &{Verifying  : python2-cryptography-1.7.2-2.el7.x86_64                    26/27  <nil>}
+
+[container.go:391] &{Verifying  : 1:openssl-libs-1.0.2k-16.el7.x86_64                        27/27  <nil>}
+
+[container.go:391] &{Installed:
+  ansible.noarch 0:2.4.2.0-2.el7                                                
+
+Dependency Installed:
+  PyYAML.x86_64 0:3.10-11.el7                                                   
+  libyaml.x86_64 0:0.1.4-11.el7_0                                               
+  make.x86_64 1:3.82-23.el7                                                     
+  openssl.x86_64 1:1.0.2k-16.el7_6.1                                            
+  python-babel.noarch 0:0.9.6-8.el7                                             
+  python-backports.x86_64 0:1.0-8.el7                                           
+  python-backports-ssl_match_hostname.noarch 0:3.5.0.1-1.el7                    
+  python-cffi.x86_64 0:1.6.0-5.el7                                              
+  python-enum34.noarch 0:1.0.4-1.el7                                            
+  python-httplib2.noarch 0:0.9.2-1.el7                                          
+  python-idna.noarch 0:2.4-1.el7                                                
+  python-ipaddress.noarch 0:1.0.16-2.el7                                        
+  python-jinja2.noarch 0:2.7.2-2.el7                                            
+  python-markupsafe.x86_64 0:0.11-10.el7                                        
+  python-paramiko.noarch 0:2.1.1-9.el7                                          
+  python-passlib.noarch 0:1.6.5-2.el7                                           
+  python-ply.noarch 0:3.4-11.el7                                                
+  python-pycparser.noarch 0:2.14-1.el7                                          
+  python-setuptools.noarch 0:0.9.8-7.el7                                        
+  python-six.noarch 0:1.9.0-2.el7                                               
+  python2-cryptography.x86_64 0:1.7.2-2.el7                                     
+  python2-jmespath.noarch 0:0.9.0-3.el7                                         
+  python2-pyasn1.noarch 0:0.1.9-7.el7                                           
+  sshpass.x86_64 0:1.06-2.el7                                                   
+
+Dependency Updated:
+  openssl-libs.x86_64 1:1.0.2k-16.el7_6.1  <nil>}
+
+[container.go:391] &{Complete!  <nil>}
+
+[container.go:391] &{Removing intermediate container b7919854a96e  <nil>}
+
+[container.go:391] &{---> 47b582317ac0  <nil>}
+
+[container.go:391] &{Step 7/18 : ADD *.yml *.cfg /ansible/  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> 549d7bb0cccf  <nil>}
+
+[container.go:391] &{Step 8/18 : ADD roles /ansible/roles  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> f0ece8562e74  <nil>}
+
+[container.go:391] &{Step 9/18 : RUN ansible-playbook -vv /ansible/playbook.yml --extra-vars layer=tini --extra-vars PLAYBOOK_SRV=${PLAYBOOK_SRV}  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 23eed2fceaf0  <nil>}
+
+[container.go:391] &{ansible-playbook 2.4.2.0
+  config file = /ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.5 (default, Oct 30 2018, 23:45:53) [GCC 4.8.5 20150623 (Red Hat 4.8.5-36)]
+Using /ansible/ansible.cfg as config file  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Could not match supplied host pattern, ignoring: all
+ [WARNING]: provided hosts list is empty, only localhost is available
+[0m  <nil>}
+
+[container.go:391] &{PLAYBOOK: playbook.yml *********************************************************
+1 plays in /ansible/playbook.yml
+
+PLAY [Install a role that's included in the config.yml] ************************  <nil>}
+
+[container.go:391] &{TASK [Gathering Facts] *********************************************************  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1]  <nil>}
+
+[container.go:391] &{TASK [Pull down the certs] *****************************************************
+task path: /ansible/playbook.yml:7  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using get_url or uri module rather than running curl
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "curl -o /ansible/SAS_CA_Certificate.pem http://sas-container-recipes-builder:1976/cacert/\n curl -o /ansible/entitlement_certificate.pem http://sas-container-recipes-builder:1976/entitlement/", "delta": "0:00:00.610772", "end": "2019-04-30 18:40:07.054582", "rc": 0, "start": "2019-04-30 18:40:06.443810", "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  2155    0  2155    0     0   355k      0 --:--:-- --:--:-- --:--:--  420k\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  3009    0  3009    0     0   571k      0 --:--:-- --:--:-- --:--:--  587k", "stderr_lines": ["  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  2155    0  2155    0     0   355k      0 --:--:-- --:--:-- --:--:--  420k", "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  3009    0  3009    0     0   571k      0 --:--:-- --:--:-- --:--:--  587k"], "stdout": "", "stdout_lines": []}
+META: ran handlers  <nil>}
+
+[container.go:391] &{TASK [tini : Get epoch and use that as our id] *********************************
+task path: /ansible/roles/tini/tasks/main.yml:4  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1 -> localhost] => {"ansible_facts": {"tmpcertloc": "/tmp/tmp.1556649604"}, "changed": false}  <nil>}
+
+[container.go:391] &{TASK [tini : Create temporary directory on remote machine] *********************
+task path: /ansible/roles/tini/tasks/main.yml:8  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "gid": 0, "group": "root", "mode": "0755", "owner": "root", "path": "/tmp/tmp.1556649604", "size": 6, "state": "directory", "uid": 0}  <nil>}
+
+[container.go:391] &{TASK [tini : Set the location of the temp directory] ***************************
+task path: /ansible/roles/tini/tasks/main.yml:13  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1] => {"ansible_facts": {"METAREPO_CERT_DIR": "/tmp/tmp.1556649604"}, "changed": false}  <nil>}
+
+[container.go:391] &{TASK [tini : Rebuild rpm db] ***************************************************
+task path: /ansible/roles/tini/tasks/main.yml:19  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using yum, dnf or zypper module rather than running rpm
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "rpm --rebuilddb", "delta": "0:00:01.333848", "end": "2019-04-30 18:40:08.808490", "rc": 0, "start": "2019-04-30 18:40:07.474642", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}  <nil>}
+
+[container.go:391] &{TASK [tini : Install tini] *****************************************************
+task path: /ansible/roles/tini/tasks/main.yml:22  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "curl --output /tmp/tmp.1556649604/tini_0.18.0.rpm --location https://github.com/krallin/tini/releases/download/v0.18.0/tini_0.18.0.rpm\n yum install --assumeyes /tmp/tmp.1556649604/tini_0.18.0.rpm", "delta": "0:00:04.687588", "end": "2019-04-30 18:40:13.629290", "rc": 0, "start": "2019-04-30 18:40:08.941702", "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100   605    0   605    0     0   2321      0 --:--:-- --:--:-- --:--:--  2318\n\r100  376k  100  376k    0     0   996k      0 --:--:-- --:--:-- --:--:--  996k", "stderr_lines": ["  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100   605    0   605    0     0   2321      0 --:--:-- --:--:-- --:--:--  2318", "", "100  376k  100  376k    0     0   996k      0 --:--:-- --:--:-- --:--:--  996k"], "stdout": "Loaded plugins: fastestmirror, ovl\nExamining /tmp/tmp.1556649604/tini_0.18.0.rpm: tini-0.18.0-1.x86_64\nMarking /tmp/tmp.1556649604/tini_0.18.0.rpm to be installed\nResolving Dependencies\n--> Running transaction check\n---> Package tini.x86_64 0:0.18.0-1 will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package       Arch            Version              Repository             Size\n================================================================================\nInstalling:\n tini          x86_64          0.18.0-1             /tini_0.18.0          873 k\n\nTransaction Summary\n================================================================================\nInstall  1 Package\n\nTotal size: 873 k\nInstalled size: 873 k\nDownloading packages:\nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing : tini-0.18.0-1.x86_64                                         1/1 \n  Verifying  : tini-0.18.0-1.x86_64                                         1/1 \n\nInstalled:\n  tini.x86_64 0:0.18.0-1                                                        \n\nComplete!", "stdout_lines": ["Loaded plugins: fastestmirror, ovl", "Examining /tmp/tmp.1556649604/tini_0.18.0.rpm: tini-0.18.0-1.x86_64", "Marking /tmp/tmp.1556649604/tini_0.18.0.rpm to be installed", "Resolving Dependencies", "--> Running transaction check", "---> Package tini.x86_64 0:0.18.0-1 will be installed", "--> Finished Dependency Resolution", "", "Dependencies Resolved", "", "================================================================================", " Package       Arch            Version              Repository             Size", "================================================================================", "Installing:", " tini          x86_64          0.18.0-1             /tini_0.18.0          873 k", "", "Transaction Summary", "================================================================================", "Install  1 Package", "", "Total size: 873 k", "Installed size: 873 k", "Downloading packages:", "Running transaction check", "Running transaction test", "Transaction test succeeded", "Running transaction", "  Installing : tini-0.18.0-1.x86_64                                         1/1 ", "  Verifying  : tini-0.18.0-1.x86_64                                         1/1 ", "", "Installed:", "  tini.x86_64 0:0.18.0-1                                                        ", "", "Complete!"]}  <nil>}
+
+[container.go:391] &{TASK [tini : Clean up yum] *****************************************************
+task path: /ansible/roles/tini/tasks/main.yml:27  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using yum module rather than running yum
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "yum clean all\n rm --recursive --force /root/.cache /var/cache/yum", "delta": "0:00:00.764363", "end": "2019-04-30 18:40:14.523525", "rc": 0, "start": "2019-04-30 18:40:13.759162", "stderr": "", "stderr_lines": [], "stdout": "Loaded plugins: fastestmirror, ovl\nCleaning repos: base extras updates", "stdout_lines": ["Loaded plugins: fastestmirror, ovl", "Cleaning repos: base extras updates"]}  <nil>}
+
+[container.go:391] &{TASK [tini : Remove temporary directory /tmp/tmp.1556649604] *******************
+task path: /ansible/roles/tini/tasks/main.yml:35  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "path": "/tmp/tmp.1556649604", "state": "absent"}
+META: ran handlers  <nil>}
+
+[container.go:391] &{TASK [Remove the certs] ********************************************************
+task path: /ansible/playbook.yml:14  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using file module with state=absent rather than running rm
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "rm /ansible/SAS_CA_Certificate.pem /ansible/entitlement_certificate.pem", "delta": "0:00:00.596446", "end": "2019-04-30 18:40:15.380505", "rc": 0, "start": "2019-04-30 18:40:14.784059", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+META: ran handlers  <nil>}
+
+[container.go:391] &{PLAY RECAP *********************************************************************  <nil>}
+
+[container.go:391] &{127.0.0.1                  : ok=10   changed=7    unreachable=0    failed=0  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{Removing intermediate container 23eed2fceaf0  <nil>}
+
+[container.go:391] &{---> 867e9dc40ecc  <nil>}
+
+[container.go:391] &{Step 10/18 : RUN ansible-playbook -vv /ansible/playbook.yml --extra-vars layer=sas-prerequisites --extra-vars PLAYBOOK_SRV=${PLAYBOOK_SRV}  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in f0ef0f3422c1  <nil>}
+
+[container.go:391] &{ansible-playbook 2.4.2.0
+  config file = /ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.5 (default, Oct 30 2018, 23:45:53) [GCC 4.8.5 20150623 (Red Hat 4.8.5-36)]
+Using /ansible/ansible.cfg as config file  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Could not match supplied host pattern, ignoring: all
+[0m  <nil>}
+
+[container.go:391] &{[91m [WARNING]: provided hosts list is empty, only localhost is available
+[0m  <nil>}
+
+[container.go:391] &{PLAYBOOK: playbook.yml *********************************************************
+1 plays in /ansible/playbook.yml  <nil>}
+
+[container.go:391] &{PLAY [Install a role that's included in the config.yml] ************************  <nil>}
+
+[container.go:391] &{TASK [Gathering Facts] *********************************************************  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1]  <nil>}
+
+[container.go:391] &{TASK [Pull down the certs] *****************************************************
+task path: /ansible/playbook.yml:7  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using get_url or uri module rather than running curl
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "curl -o /ansible/SAS_CA_Certificate.pem http://sas-container-recipes-builder:1976/cacert/\n curl -o /ansible/entitlement_certificate.pem http://sas-container-recipes-builder:1976/entitlement/", "delta": "0:00:00.610806", "end": "2019-04-30 18:40:20.480859", "rc": 0, "start": "2019-04-30 18:40:19.870053", "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  2155    0  2155    0     0   391k      0 --:--:-- --:--:-- --:--:--  420k\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  3009    0  3009    0     0   571k      0 --:--:-- --:--:-- --:--:--  587k", "stderr_lines": ["  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  2155    0  2155    0     0   391k      0 --:--:-- --:--:-- --:--:--  420k", "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  3009    0  3009    0     0   571k      0 --:--:-- --:--:-- --:--:--  587k"], "stdout": "", "stdout_lines": []}  <nil>}
+
+[container.go:391] &{META: ran handlers  <nil>}
+
+[container.go:391] &{TASK [sas-prerequisites : Rebuild rpm db] **************************************
+task path: /ansible/roles/sas-prerequisites/tasks/main.yml:6  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using yum, dnf or zypper module rather than running rpm
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "rpm --rebuilddb", "delta": "0:00:01.417416", "end": "2019-04-30 18:40:22.027524", "rc": 0, "start": "2019-04-30 18:40:20.610108", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}  <nil>}
+
+[container.go:391] &{TASK [sas-prerequisites : Install required packages] ***************************  <nil>}
+
+[container.go:391] &{task path: /ansible/roles/sas-prerequisites/tasks/main.yml:9  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => (item=[u'initscripts', u'which', u'acl', u'libpng12', u'libXp', u'libXmu', u'net-tools', u'xterm', u'numactl']) => {"changed": true, "item": ["initscripts", "which", "acl", "libpng12", "libXp", "libXmu", "net-tools", "xterm", "numactl"], "msg": "", "rc": 0, "results": ["acl-2.2.51-14.el7.x86_64 providing acl is already installed", "Loaded plugins: fastestmirror, ovl\nLoading mirror speeds from cached hostfile\n * base: mirror.umd.edu\n * extras: mirror.math.princeton.edu\n * updates: mirror.trouble-free.net\nResolving Dependencies\n--> Running transaction check\n---> Package initscripts.x86_64 0:9.49.46-1.el7 will be installed\n--> Processing Dependency: sysvinit-tools >= 2.87-5 for package: initscripts-9.49.46-1.el7.x86_64\n--> Processing Dependency: iproute for package: initscripts-9.49.46-1.el7.x86_64\n---> Package libXmu.x86_64 0:1.1.2-2.el7 will be installed\n--> Processing Dependency: libXt.so.6()(64bit) for package: libXmu-1.1.2-2.el7.x86_64\n--> Processing Dependency: libXext.so.6()(64bit) for package: libXmu-1.1.2-2.el7.x86_64\n--> Processing Dependency: libX11.so.6()(64bit) for package: libXmu-1.1.2-2.el7.x86_64\n---> Package libXp.x86_64 0:1.0.2-2.1.el7 will be installed\n--> Processing Dependency: libXau.so.6()(64bit) for package: libXp-1.0.2-2.1.el7.x86_64\n---> Package libpng12.x86_64 0:1.2.50-10.el7 will be installed\n---> Package net-tools.x86_64 0:2.0-0.24.20131004git.el7 will be installed\n---> Package numactl.x86_64 0:2.0.9-7.el7 will be installed\n--> Processing Dependency: libnuma.so.1(libnuma_1.4)(64bit) for package: numactl-2.0.9-7.el7.x86_64\n--> Processing Dependency: libnuma.so.1(libnuma_1.3)(64bit) for package: numactl-2.0.9-7.el7.x86_64\n--> Processing Dependency: libnuma.so.1(libnuma_1.2)(64bit) for package: numactl-2.0.9-7.el7.x86_64\n--> Processing Dependency: libnuma.so.1(libnuma_1.1)(64bit) for package: numactl-2.0.9-7.el7.x86_64\n--> Processing Dependency: libnuma.so.1()(64bit) for package: numactl-2.0.9-7.el7.x86_64\n---> Package which.x86_64 0:2.20-7.el7 will be installed\n---> Package xterm.x86_64 0:295-3.el7 will be installed\n--> Processing Dependency: libfontconfig.so.1()(64bit) for package: xterm-295-3.el7.x86_64\n--> Processing Dependency: libXpm.so.4()(64bit) for package: xterm-295-3.el7.x86_64\n--> Processing Dependency: libXft.so.2()(64bit) for package: xterm-295-3.el7.x86_64\n--> Processing Dependency: libXaw.so.7()(64bit) for package: xterm-295-3.el7.x86_64\n--> Processing Dependency: libICE.so.6()(64bit) for package: xterm-295-3.el7.x86_64\n--> Running transaction check\n---> Package fontconfig.x86_64 0:2.13.0-4.3.el7 will be installed\n--> Processing Dependency: freetype >= 2.8-7 for package: fontconfig-2.13.0-4.3.el7.x86_64\n--> Processing Dependency: freetype for package: fontconfig-2.13.0-4.3.el7.x86_64\n--> Processing Dependency: fontpackages-filesystem for package: fontconfig-2.13.0-4.3.el7.x86_64\n--> Processing Dependency: dejavu-sans-fonts for package: fontconfig-2.13.0-4.3.el7.x86_64\n--> Processing Dependency: libfreetype.so.6()(64bit) for package: fontconfig-2.13.0-4.3.el7.x86_64\n---> Package iproute.x86_64 0:4.11.0-14.el7_6.2 will be installed\n--> Processing Dependency: libmnl.so.0(LIBMNL_1.0)(64bit) for package: iproute-4.11.0-14.el7_6.2.x86_64\n--> Processing Dependency: libxtables.so.10()(64bit) for package: iproute-4.11.0-14.el7_6.2.x86_64\n--> Processing Dependency: libmnl.so.0()(64bit) for package: iproute-4.11.0-14.el7_6.2.x86_64\n---> Package libICE.x86_64 0:1.0.9-9.el7 will be installed\n---> Package libX11.x86_64 0:1.6.5-2.el7 will be installed\n--> Processing Dependency: libX11-common >= 1.6.5-2.el7 for package: libX11-1.6.5-2.el7.x86_64\n--> Processing Dependency: libxcb.so.1()(64bit) for package: libX11-1.6.5-2.el7.x86_64\n---> Package libXau.x86_64 0:1.0.8-2.1.el7 will be installed\n---> Package libXaw.x86_64 0:1.0.13-4.el7 will be installed\n---> Package libXext.x86_64 0:1.3.3-3.el7 will be installed\n---> Package libXft.x86_64 0:2.3.2-2.el7 will be installed\n--> Processing Dependency: libXrender.so.1()(64bit) for package: libXft-2.3.2-2.el7.x86_64\n---> Package libXpm.x86_64 0:3.5.12-1.el7 will be installed\n---> Package libXt.x86_64 0:1.1.5-3.el7 will be installed\n--> Processing Dependency: libSM.so.6()(64bit) for package: libXt-1.1.5-3.el7.x86_64\n---> Package numactl-libs.x86_64 0:2.0.9-7.el7 will be installed\n---> Package sysvinit-tools.x86_64 0:2.88-14.dsf.el7 will be installed\n--> Running transaction check\n---> Package dejavu-sans-fonts.noarch 0:2.33-6.el7 will be installed\n--> Processing Dependency: dejavu-fonts-common = 2.33-6.el7 for package: dejavu-sans-fonts-2.33-6.el7.noarch\n---> Package fontpackages-filesystem.noarch 0:1.44-8.el7 will be installed\n---> Package freetype.x86_64 0:2.8-12.el7_6.1 will be installed\n--> Processing Dependency: libpng15.so.15(PNG15_0)(64bit) for package: freetype-2.8-12.el7_6.1.x86_64\n--> Processing Dependency: libpng15.so.15()(64bit) for package: freetype-2.8-12.el7_6.1.x86_64\n---> Package iptables.x86_64 0:1.4.21-28.el7 will be installed\n--> Processing Dependency: libnfnetlink.so.0()(64bit) for package: iptables-1.4.21-28.el7.x86_64\n--> Processing Dependency: libnetfilter_conntrack.so.3()(64bit) for package: iptables-1.4.21-28.el7.x86_64\n---> Package libSM.x86_64 0:1.2.2-2.el7 will be installed\n---> Package libX11-common.noarch 0:1.6.5-2.el7 will be installed\n---> Package libXrender.x86_64 0:0.9.10-1.el7 will be installed\n---> Package libmnl.x86_64 0:1.0.3-7.el7 will be installed\n---> Package libxcb.x86_64 0:1.13-1.el7 will be installed\n--> Running transaction check\n---> Package dejavu-fonts-common.noarch 0:2.33-6.el7 will be installed\n---> Package libnetfilter_conntrack.x86_64 0:1.0.6-1.el7_3 will be installed\n---> Package libnfnetlink.x86_64 0:1.0.1-4.el7 will be installed\n---> Package libpng.x86_64 2:1.5.13-7.el7_2 will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package                   Arch     Version                     Repository\n                                                                           Size\n================================================================================\nInstalling:\n initscripts               x86_64   9.49.46-1.el7               base      439 k\n libXmu                    x86_64   1.1.2-2.el7                 base       71 k\n libXp                     x86_64   1.0.2-2.1.el7               base       30 k\n libpng12                  x86_64   1.2.50-10.el7               base      171 k\n net-tools                 x86_64   2.0-0.24.20131004git.el7    base      306 k\n numactl                   x86_64   2.0.9-7.el7                 base       66 k\n which                     x86_64   2.20-7.el7                  base       41 k\n xterm                     x86_64   295-3.el7                   base      455 k\nInstalling for dependencies:\n dejavu-fonts-common       noarch   2.33-6.el7                  base       64 k\n dejavu-sans-fonts         noarch   2.33-6.el7                  base      1.4 M\n fontconfig                x86_64   2.13.0-4.3.el7              base      254 k\n fontpackages-filesystem   noarch   1.44-8.el7                  base      9.9 k\n freetype                  x86_64   2.8-12.el7_6.1              updates   380 k\n iproute                   x86_64   4.11.0-14.el7_6.2           updates   764 k\n iptables                  x86_64   1.4.21-28.el7               base      433 k\n libICE                    x86_64   1.0.9-9.el7                 base       66 k\n libSM                     x86_64   1.2.2-2.el7                 base       39 k\n libX11                    x86_64   1.6.5-2.el7                 base      606 k\n libX11-common             noarch   1.6.5-2.el7                 base      164 k\n libXau                    x86_64   1.0.8-2.1.el7               base       29 k\n libXaw                    x86_64   1.0.13-4.el7                base      192 k\n libXext                   x86_64   1.3.3-3.el7                 base       39 k\n libXft                    x86_64   2.3.2-2.el7                 base       58 k\n libXpm                    x86_64   3.5.12-1.el7                base       55 k\n libXrender                x86_64   0.9.10-1.el7                base       26 k\n libXt                     x86_64   1.1.5-3.el7                 base      173 k\n libmnl                    x86_64   1.0.3-7.el7                 base       23 k\n libnetfilter_conntrack    x86_64   1.0.6-1.el7_3               base       55 k\n libnfnetlink              x86_64   1.0.1-4.el7                 base       26 k\n libpng                    x86_64   2:1.5.13-7.el7_2            base      213 k\n libxcb                    x86_64   1.13-1.el7                  base      214 k\n numactl-libs              x86_64   2.0.9-7.el7                 base       29 k\n sysvinit-tools            x86_64   2.88-14.dsf.el7             base       63 k\n\nTransaction Summary\n================================================================================\nInstall  8 Packages (+25 Dependent packages)\n\nTotal download size: 6.8 M\nInstalled size: 20 M\nDownloading packages:\n--------------------------------------------------------------------------------\nTotal                                              3.1 MB/s | 6.8 MB  00:02     \nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing : libICE-1.0.9-9.el7.x86_64                                   1/33 \n  Installing : libXau-1.0.8-2.1.el7.x86_64                                 2/33 \n  Installing : libnfnetlink-1.0.1-4.el7.x86_64                             3/33 \n  Installing : fontpackages-filesystem-1.44-8.el7.noarch                   4/33 \n  Installing : libmnl-1.0.3-7.el7.x86_64                                   5/33 \n  Installing : libnetfilter_conntrack-1.0.6-1.el7_3.x86_64                 6/33 \n  Installing : iptables-1.4.21-28.el7.x86_64                               7/33 \n  Installing : iproute-4.11.0-14.el7_6.2.x86_64                            8/33 \n  Installing : dejavu-fonts-common-2.33-6.el7.noarch                       9/33 \n  Installing : dejavu-sans-fonts-2.33-6.el7.noarch                        10/33 \n  Installing : libxcb-1.13-1.el7.x86_64                                   11/33 \n  Installing : libSM-1.2.2-2.el7.x86_64                                   12/33 \n  Installing : libX11-common-1.6.5-2.el7.noarch                           13/33 \n  Installing : libX11-1.6.5-2.el7.x86_64                                  14/33 \n  Installing : libXext-1.3.3-3.el7.x86_64                                 15/33 \n  Installing : libXt-1.1.5-3.el7.x86_64                                   16/33 \n  Installing : libXmu-1.1.2-2.el7.x86_64                                  17/33 \n  Installing : libXpm-3.5.12-1.el7.x86_64                                 18/33 \n  Installing : libXaw-1.0.13-4.el7.x86_64                                 19/33 \n  Installing : libXrender-0.9.10-1.el7.x86_64                             20/33 \n  Installing : numactl-libs-2.0.9-7.el7.x86_64                            21/33 \n  Installing : sysvinit-tools-2.88-14.dsf.el7.x86_64                      22/33 \n  Installing : 2:libpng-1.5.13-7.el7_2.x86_64                             23/33 \n  Installing : freetype-2.8-12.el7_6.1.x86_64                             24/33 \n  Installing : fontconfig-2.13.0-4.3.el7.x86_64                           25/33 \n  Installing : libXft-2.3.2-2.el7.x86_64                                  26/33 \n  Installing : xterm-295-3.el7.x86_64                                     27/33 \n  Installing : initscripts-9.49.46-1.el7.x86_64                           28/33 \n  Installing : numactl-2.0.9-7.el7.x86_64                                 29/33 \n  Installing : libXp-1.0.2-2.1.el7.x86_64                                 30/33 \n  Installing : net-tools-2.0-0.24.20131004git.el7.x86_64                  31/33 \n  Installing : libpng12-1.2.50-10.el7.x86_64                              32/33 \n  Installing : which-2.20-7.el7.x86_64                                    33/33 \ninstall-info: No such file or directory for /usr/share/info/which.info.gz\n  Verifying  : libXext-1.3.3-3.el7.x86_64                                  1/33 \n  Verifying  : fontconfig-2.13.0-4.3.el7.x86_64                            2/33 \n  Verifying  : libmnl-1.0.3-7.el7.x86_64                                   3/33 \n  Verifying  : libXaw-1.0.13-4.el7.x86_64                                  4/33 \n  Verifying  : iproute-4.11.0-14.el7_6.2.x86_64                            5/33 \n  Verifying  : libnetfilter_conntrack-1.0.6-1.el7_3.x86_64                 6/33 \n  Verifying  : 2:libpng-1.5.13-7.el7_2.x86_64                              7/33 \n  Verifying  : libXt-1.1.5-3.el7.x86_64                                    8/33 \n  Verifying  : sysvinit-tools-2.88-14.dsf.el7.x86_64                       9/33 \n  Verifying  : libICE-1.0.9-9.el7.x86_64                                  10/33 \n  Verifying  : initscripts-9.49.46-1.el7.x86_64                           11/33 \n  Verifying  : fontpackages-filesystem-1.44-8.el7.noarch                  12/33 \n  Verifying  : which-2.20-7.el7.x86_64                                    13/33 \n  Verifying  : libpng12-1.2.50-10.el7.x86_64                              14/33 \n  Verifying  : libxcb-1.13-1.el7.x86_64                                   15/33 \n  Verifying  : libXft-2.3.2-2.el7.x86_64                                  16/33 \n  Verifying  : libXrender-0.9.10-1.el7.x86_64                             17/33 \n  Verifying  : libXpm-3.5.12-1.el7.x86_64                                 18/33 \n  Verifying  : libXp-1.0.2-2.1.el7.x86_64                                 19/33 \n  Verifying  : numactl-libs-2.0.9-7.el7.x86_64                            20/33 \n  Verifying  : net-tools-2.0-0.24.20131004git.el7.x86_64                  21/33 \n  Verifying  : numactl-2.0.9-7.el7.x86_64                                 22/33 \n  Verifying  : libX11-1.6.5-2.el7.x86_64                                  23/33 \n  Verifying  : xterm-295-3.el7.x86_64                                     24/33 \n  Verifying  : dejavu-sans-fonts-2.33-6.el7.noarch                        25/33 \n  Verifying  : libXmu-1.1.2-2.el7.x86_64                                  26/33 \n  Verifying  : iptables-1.4.21-28.el7.x86_64                              27/33 \n  Verifying  : libnfnetlink-1.0.1-4.el7.x86_64                            28/33 \n  Verifying  : dejavu-fonts-common-2.33-6.el7.noarch                      29/33 \n  Verifying  : libXau-1.0.8-2.1.el7.x86_64                                30/33 \n  Verifying  : libSM-1.2.2-2.el7.x86_64                                   31/33 \n  Verifying  : libX11-common-1.6.5-2.el7.noarch                           32/33 \n  Verifying  : freetype-2.8-12.el7_6.1.x86_64                             33/33 \n\nInstalled:\n  initscripts.x86_64 0:9.49.46-1.el7           libXmu.x86_64 0:1.1.2-2.el7     \n  libXp.x86_64 0:1.0.2-2.1.el7                 libpng12.x86_64 0:1.2.50-10.el7 \n  net-tools.x86_64 0:2.0-0.24.20131004git.el7  numactl.x86_64 0:2.0.9-7.el7    \n  which.x86_64 0:2.20-7.el7                    xterm.x86_64 0:295-3.el7        \n\nDependency Installed:\n  dejavu-fonts-common.noarch 0:2.33-6.el7                                       \n  dejavu-sans-fonts.noarch 0:2.33-6.el7                                         \n  fontconfig.x86_64 0:2.13.0-4.3.el7                                            \n  fontpackages-filesystem.noarch 0:1.44-8.el7                                   \n  freetype.x86_64 0:2.8-12.el7_6.1                                              \n  iproute.x86_64 0:4.11.0-14.el7_6.2                                            \n  iptables.x86_64 0:1.4.21-28.el7                                               \n  libICE.x86_64 0:1.0.9-9.el7                                                   \n  libSM.x86_64 0:1.2.2-2.el7                                                    \n  libX11.x86_64 0:1.6.5-2.el7                                                   \n  libX11-common.noarch 0:1.6.5-2.el7                                            \n  libXau.x86_64 0:1.0.8-2.1.el7                                                 \n  libXaw.x86_64 0:1.0.13-4.el7                                                  \n  libXext.x86_64 0:1.3.3-3.el7                                                  \n  libXft.x86_64 0:2.3.2-2.el7                                                   \n  libXpm.x86_64 0:3.5.12-1.el7                                                  \n  libXrender.x86_64 0:0.9.10-1.el7                                              \n  libXt.x86_64 0:1.1.5-3.el7                                                    \n  libmnl.x86_64 0:1.0.3-7.el7                                                   \n  libnetfilter_conntrack.x86_64 0:1.0.6-1.el7_3                                 \n  libnfnetlink.x86_64 0:1.0.1-4.el7                                             \n  libpng.x86_64 2:1.5.13-7.el7_2                                                \n  libxcb.x86_64 0:1.13-1.el7                                                    \n  numactl-libs.x86_64 0:2.0.9-7.el7                                             \n  sysvinit-tools.x86_64 0:2.88-14.dsf.el7                                       \n\nComplete!\n"]}  <nil>}
+
+[container.go:391] &{TASK [sas-prerequisites : Clean up yum cache] **********************************
+task path: /ansible/roles/sas-prerequisites/tasks/main.yml:24  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using yum module rather than running yum
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "yum clean all\n rm --recursive --force /root/.cache /var/cache/yum", "delta": "0:00:00.779437", "end": "2019-04-30 18:41:28.552775", "rc": 0, "start": "2019-04-30 18:41:27.773338", "stderr": "", "stderr_lines": [], "stdout": "Loaded plugins: fastestmirror, ovl\nCleaning repos: base extras updates\nCleaning up list of fastest mirrors", "stdout_lines": ["Loaded plugins: fastestmirror, ovl", "Cleaning repos: base extras updates", "Cleaning up list of fastest mirrors"]}  <nil>}
+
+[container.go:391] &{TASK [sas-prerequisites : Install required packages] ***************************
+task path: /ansible/roles/sas-prerequisites/tasks/main.yml:34  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => (item=[])  => {"changed": false, "item": [], "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-prerequisites : Remove nproc file] ***********************************
+task path: /ansible/roles/sas-prerequisites/tasks/main.yml:49  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "path": "/etc/security/limits.d/20-nproc.conf", "state": "absent"}
+META: ran handlers  <nil>}
+
+[container.go:391] &{TASK [Remove the certs] ********************************************************
+task path: /ansible/playbook.yml:14  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using file module with state=absent rather than running rm
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "rm /ansible/SAS_CA_Certificate.pem /ansible/entitlement_certificate.pem", "delta": "0:00:00.593223", "end": "2019-04-30 18:41:29.555800", "rc": 0, "start": "2019-04-30 18:41:28.962577", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+META: ran handlers  <nil>}
+
+[container.go:391] &{PLAY RECAP *********************************************************************
+127.0.0.1                  : ok=7    changed=6    unreachable=0    failed=0  <nil>}
+
+[container.go:391] &{Removing intermediate container f0ef0f3422c1  <nil>}
+
+[container.go:391] &{---> deac1379f718  <nil>}
+
+[container.go:391] &{Step 11/18 : ADD dynamicRoles /ansible/dynamicRoles  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> b62605566478  <nil>}
+
+[container.go:391] &{Step 12/18 : RUN ansible-playbook -vv /ansible/playbook.yml --extra-vars layer=httpproxy --extra-vars PLAYBOOK_SRV=${PLAYBOOK_SRV}  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 69ff88141437  <nil>}
+
+[container.go:391] &{ansible-playbook 2.4.2.0
+  config file = /ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.5 (default, Oct 30 2018, 23:45:53) [GCC 4.8.5 20150623 (Red Hat 4.8.5-36)]
+Using /ansible/ansible.cfg as config file  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Could not match supplied host pattern, ignoring: all
+[0m  <nil>}
+
+[container.go:391] &{[91m [WARNING]: provided hosts list is empty, only localhost is available
+[0m  <nil>}
+
+[container.go:391] &{PLAYBOOK: playbook.yml *********************************************************
+1 plays in /ansible/playbook.yml  <nil>}
+
+[container.go:391] &{PLAY [Install a role that's included in the config.yml] ************************  <nil>}
+
+[container.go:391] &{TASK [Gathering Facts] *********************************************************  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1]  <nil>}
+
+[container.go:391] &{TASK [Pull down the certs] *****************************************************
+task path: /ansible/playbook.yml:7  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using get_url or uri module rather than running curl
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "curl -o /ansible/SAS_CA_Certificate.pem http://sas-container-recipes-builder:1976/cacert/\n curl -o /ansible/entitlement_certificate.pem http://sas-container-recipes-builder:1976/entitlement/", "delta": "0:00:00.611977", "end": "2019-04-30 18:41:38.965848", "rc": 0, "start": "2019-04-30 18:41:38.353871", "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  2155    0  2155    0     0   348k      0 --:--:-- --:--:-- --:--:--  420k\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  3009    0  3009    0     0   579k      0 --:--:-- --:--:-- --:--:--  734k", "stderr_lines": ["  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  2155    0  2155    0     0   348k      0 --:--:-- --:--:-- --:--:--  420k", "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  3009    0  3009    0     0   579k      0 --:--:-- --:--:-- --:--:--  734k"], "stdout": "", "stdout_lines": []}
+META: ran handlers  <nil>}
+
+[container.go:391] &{TASK [httpproxy : Load the httpproxy variables] ********************************
+task path: /ansible/roles/httpproxy/tasks/main.yml:4  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1] => {"ansible_facts": {"sas_host_group_variables": {"sas_host_group_variables_httpproxy": {"installables-x64_redhat_linux_6-yum": {"cleanutils": {"SERVICE_APP_NAME": "cleanutils", "SERVICE_MEMORY_NEEDED": 32, "SERVICE_PRODUCT_NAME": "cleanutils", "SERVICE_YUM_PACKAGE": "sas-cleanutils"}, "httpd": {"SERVICE_APP_NAME": "httpd", "SERVICE_MEMORY_NEEDED": 0, "SERVICE_PRODUCT_NAME": "httpd", "SERVICE_YUM_PACKAGE": "httpd"}, "mod_ssl": {"SERVICE_APP_NAME": "mod_ssl", "SERVICE_MEMORY_NEEDED": 0, "SERVICE_PRODUCT_NAME": "mod_ssl", "SERVICE_YUM_PACKAGE": "mod_ssl"}}}}}, "ansible_included_var_files": ["/ansible/roles/httpproxy/vars/httpproxy"], "changed": false}  <nil>}
+
+[container.go:391] &{TASK [httpproxy : Install SAS packages] ****************************************
+task path: /ansible/roles/httpproxy/tasks/main.yml:9  <nil>}
+
+[container.go:391] &{TASK [sas-install : Add repository information] ********************************
+task path: /ansible/roles/sas-install/tasks/main.yml:4  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => (item={u'loc': u'/etc/yum.repos.d/sas.repo', u'file': u'sas.repo.j2'}) => {"changed": true, "checksum": "a880031ec6c30739c2a4088d50d128acd2eeb708", "dest": "/etc/yum.repos.d/sas.repo", "gid": 0, "group": "root", "item": {"file": "sas.repo.j2", "loc": "/etc/yum.repos.d/sas.repo"}, "md5sum": "63c31e75c21c16c39ae36e159c091584", "mode": "0664", "owner": "root", "size": 16832, "src": "/root/.ansible/tmp/ansible-tmp-1556649699.19-55937635859846/source", "state": "file", "uid": 0}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Get epoch and use that as our id] **************************
+task path: /ansible/roles/sas-install/tasks/main.yml:13  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1 -> localhost] => {"ansible_facts": {"tmpcertloc": "/tmp/tmp.1556649693"}, "changed": false}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Create temporary directory on remote machine] **************
+task path: /ansible/roles/sas-install/tasks/main.yml:17  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Set the location of the temp directory] ********************
+task path: /ansible/roles/sas-install/tasks/main.yml:23  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Copy certificates to remote machine] ***********************
+task path: /ansible/roles/sas-install/tasks/main.yml:29  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => (item=entitlement_certificate.pem)  => {"changed": false, "item": "entitlement_certificate.pem", "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => (item=SAS_CA_Certificate.pem)  => {"changed": false, "item": "SAS_CA_Certificate.pem", "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Rebuild rpm db] ********************************************
+task path: /ansible/roles/sas-install/tasks/main.yml:40  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using yum, dnf or zypper module rather than running rpm
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "rpm --rebuilddb", "delta": "0:00:01.438333", "end": "2019-04-30 18:41:41.303312", "rc": 0, "start": "2019-04-30 18:41:39.864979", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Shell script to install repository definitions] ************
+task path: /ansible/roles/sas-install/tasks/main.yml:44  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Collect yum groups] ****************************************
+task path: /ansible/roles/sas-install/tasks/main.yml:72  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1] => {"ansible_facts": {"groups_to_install": ""}, "changed": false}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Collect rpms] **********************************************
+task path: /ansible/roles/sas-install/tasks/main.yml:83  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1] => {"ansible_facts": {"packages_to_install": "sas-cleanutils httpd mod_ssl "}, "changed": false}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Print out yum group fact] **********************************
+task path: /ansible/roles/sas-install/tasks/main.yml:95  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Update and install SAS groups] *****************************
+task path: /ansible/roles/sas-install/tasks/main.yml:100  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Print out rpm fact] ****************************************
+task path: /ansible/roles/sas-install/tasks/main.yml:106  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1] => {
+    "msg": "yum install --assumeyes sas-cleanutils httpd mod_ssl "
+}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Install SAS packages] **************************************  <nil>}
+
+[container.go:391] &{task path: /ansible/roles/sas-install/tasks/main.yml:110  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": ["yum", "install", "--assumeyes", "sas-cleanutils", "httpd", "mod_ssl"], "delta": "0:00:28.018085", "end": "2019-04-30 18:42:09.609218", "rc": 0, "start": "2019-04-30 18:41:41.591133", "stderr": "", "stderr_lines": [], "stdout": "Loaded plugins: fastestmirror, ovl\nDetermining fastest mirrors\n * base: mirror.lug.udel.edu\n * extras: mirror.math.princeton.edu\n * updates: mirror.trouble-free.net\nResolving Dependencies\n--> Running transaction check\n---> Package httpd.x86_64 0:2.4.6-89.el7.centos will be installed\n--> Processing Dependency: httpd-tools = 2.4.6-89.el7.centos for package: httpd-2.4.6-89.el7.centos.x86_64\n--> Processing Dependency: system-logos >= 7.92.1-1 for package: httpd-2.4.6-89.el7.centos.x86_64\n--> Processing Dependency: /etc/mime.types for package: httpd-2.4.6-89.el7.centos.x86_64\n--> Processing Dependency: libaprutil-1.so.0()(64bit) for package: httpd-2.4.6-89.el7.centos.x86_64\n--> Processing Dependency: libapr-1.so.0()(64bit) for package: httpd-2.4.6-89.el7.centos.x86_64\n---> Package mod_ssl.x86_64 1:2.4.6-89.el7.centos will be installed\n---> Package sas-cleanutils.x86_64 0:1.1.8-20180502.1525290347361 will be installed\n--> Running transaction check\n---> Package apr.x86_64 0:1.4.8-3.el7_4.1 will be installed\n---> Package apr-util.x86_64 0:1.5.2-6.el7 will be installed\n---> Package centos-logos.noarch 0:70.0.6-3.el7.centos will be installed\n---> Package httpd-tools.x86_64 0:2.4.6-89.el7.centos will be installed\n---> Package mailcap.noarch 0:2.1.41-2.el7 will be installed\n--> Finished Dependency Resolution\n\nDependencies Resolved\n\n================================================================================\n Package        Arch   Version                      Repository             Size\n================================================================================\nInstalling:\n httpd          x86_64 2.4.6-89.el7.centos          updates               2.7 M\n mod_ssl        x86_64 1:2.4.6-89.el7.centos        updates               112 k\n sas-cleanutils x86_64 1.1.8-20180502.1525290347361 sas-va-104-x64_redhat_linux_6-yum\n                                                                          9.3 k\nInstalling for dependencies:\n apr            x86_64 1.4.8-3.el7_4.1              base                  103 k\n apr-util       x86_64 1.5.2-6.el7                  base                   92 k\n centos-logos   noarch 70.0.6-3.el7.centos          base                   21 M\n httpd-tools    x86_64 2.4.6-89.el7.centos          updates                90 k\n mailcap        noarch 2.1.41-2.el7                 base                   31 k\n\nTransaction Summary\n================================================================================\nInstall  3 Packages (+5 Dependent packages)\n\nTotal download size: 24 M\nInstalled size: 32 M\nDownloading packages:\n--------------------------------------------------------------------------------\nTotal                                               36 MB/s |  24 MB  00:00     \nRunning transaction check\nRunning transaction test\nTransaction test succeeded\nRunning transaction\n  Installing : apr-1.4.8-3.el7_4.1.x86_64                                   1/8 \n  Installing : apr-util-1.5.2-6.el7.x86_64                                  2/8 \n  Installing : httpd-tools-2.4.6-89.el7.centos.x86_64                       3/8 \n  Installing : centos-logos-70.0.6-3.el7.centos.noarch                      4/8 \n  Installing : mailcap-2.1.41-2.el7.noarch                                  5/8 \n  Installing : httpd-2.4.6-89.el7.centos.x86_64                             6/8 \n  Installing : 1:mod_ssl-2.4.6-89.el7.centos.x86_64                         7/8 \n  Installing : sas-cleanutils-1.1.8-20180502.1525290347361.x86_64           8/8 \n  Verifying  : httpd-tools-2.4.6-89.el7.centos.x86_64                       1/8 \n  Verifying  : mailcap-2.1.41-2.el7.noarch                                  2/8 \n  Verifying  : apr-util-1.5.2-6.el7.x86_64                                  3/8 \n  Verifying  : sas-cleanutils-1.1.8-20180502.1525290347361.x86_64           4/8 \n  Verifying  : httpd-2.4.6-89.el7.centos.x86_64                             5/8 \n  Verifying  : apr-1.4.8-3.el7_4.1.x86_64                                   6/8 \n  Verifying  : centos-logos-70.0.6-3.el7.centos.noarch                      7/8 \n  Verifying  : 1:mod_ssl-2.4.6-89.el7.centos.x86_64                         8/8 \n\nInstalled:\n  httpd.x86_64 0:2.4.6-89.el7.centos                                            \n  mod_ssl.x86_64 1:2.4.6-89.el7.centos                                          \n  sas-cleanutils.x86_64 0:1.1.8-20180502.1525290347361                          \n\nDependency Installed:\n  apr.x86_64 0:1.4.8-3.el7_4.1                                                  \n  apr-util.x86_64 0:1.5.2-6.el7                                                 \n  centos-logos.noarch 0:70.0.6-3.el7.centos                                     \n  httpd-tools.x86_64 0:2.4.6-89.el7.centos                                      \n  mailcap.noarch 0:2.1.41-2.el7                                                 \n\nComplete!", "stdout_lines": ["Loaded plugins: fastestmirror, ovl", "Determining fastest mirrors", " * base: mirror.lug.udel.edu", " * extras: mirror.math.princeton.edu", " * updates: mirror.trouble-free.net", "Resolving Dependencies", "--> Running transaction check", "---> Package httpd.x86_64 0:2.4.6-89.el7.centos will be installed", "--> Processing Dependency: httpd-tools = 2.4.6-89.el7.centos for package: httpd-2.4.6-89.el7.centos.x86_64", "--> Processing Dependency: system-logos >= 7.92.1-1 for package: httpd-2.4.6-89.el7.centos.x86_64", "--> Processing Dependency: /etc/mime.types for package: httpd-2.4.6-89.el7.centos.x86_64", "--> Processing Dependency: libaprutil-1.so.0()(64bit) for package: httpd-2.4.6-89.el7.centos.x86_64", "--> Processing Dependency: libapr-1.so.0()(64bit) for package: httpd-2.4.6-89.el7.centos.x86_64", "---> Package mod_ssl.x86_64 1:2.4.6-89.el7.centos will be installed", "---> Package sas-cleanutils.x86_64 0:1.1.8-20180502.1525290347361 will be installed", "--> Running transaction check", "---> Package apr.x86_64 0:1.4.8-3.el7_4.1 will be installed", "---> Package apr-util.x86_64 0:1.5.2-6.el7 will be installed", "---> Package centos-logos.noarch 0:70.0.6-3.el7.centos will be installed", "---> Package httpd-tools.x86_64 0:2.4.6-89.el7.centos will be installed", "---> Package mailcap.noarch 0:2.1.41-2.el7 will be installed", "--> Finished Dependency Resolution", "", "Dependencies Resolved", "", "================================================================================", " Package        Arch   Version                      Repository             Size", "================================================================================", "Installing:", " httpd          x86_64 2.4.6-89.el7.centos          updates               2.7 M", " mod_ssl        x86_64 1:2.4.6-89.el7.centos        updates               112 k", " sas-cleanutils x86_64 1.1.8-20180502.1525290347361 sas-va-104-x64_redhat_linux_6-yum", "                                                                          9.3 k", "Installing for dependencies:", " apr            x86_64 1.4.8-3.el7_4.1              base                  103 k", " apr-util       x86_64 1.5.2-6.el7                  base                   92 k", " centos-logos   noarch 70.0.6-3.el7.centos          base                   21 M", " httpd-tools    x86_64 2.4.6-89.el7.centos          updates                90 k", " mailcap        noarch 2.1.41-2.el7                 base                   31 k", "", "Transaction Summary", "================================================================================", "Install  3 Packages (+5 Dependent packages)", "", "Total download size: 24 M", "Installed size: 32 M", "Downloading packages:", "--------------------------------------------------------------------------------", "Total                                               36 MB/s |  24 MB  00:00     ", "Running transaction check", "Running transaction test", "Transaction test succeeded", "Running transaction", "  Installing : apr-1.4.8-3.el7_4.1.x86_64                                   1/8 ", "  Installing : apr-util-1.5.2-6.el7.x86_64                                  2/8 ", "  Installing : httpd-tools-2.4.6-89.el7.centos.x86_64                       3/8 ", "  Installing : centos-logos-70.0.6-3.el7.centos.noarch                      4/8 ", "  Installing : mailcap-2.1.41-2.el7.noarch                                  5/8 ", "  Installing : httpd-2.4.6-89.el7.centos.x86_64                             6/8 ", "  Installing : 1:mod_ssl-2.4.6-89.el7.centos.x86_64                         7/8 ", "  Installing : sas-cleanutils-1.1.8-20180502.1525290347361.x86_64           8/8 ", "  Verifying  : httpd-tools-2.4.6-89.el7.centos.x86_64                       1/8 ", "  Verifying  : mailcap-2.1.41-2.el7.noarch                                  2/8 ", "  Verifying  : apr-util-1.5.2-6.el7.x86_64                                  3/8 ", "  Verifying  : sas-cleanutils-1.1.8-20180502.1525290347361.x86_64           4/8 ", "  Verifying  : httpd-2.4.6-89.el7.centos.x86_64                             5/8 ", "  Verifying  : apr-1.4.8-3.el7_4.1.x86_64                                   6/8 ", "  Verifying  : centos-logos-70.0.6-3.el7.centos.noarch                      7/8 ", "  Verifying  : 1:mod_ssl-2.4.6-89.el7.centos.x86_64                         8/8 ", "", "Installed:", "  httpd.x86_64 0:2.4.6-89.el7.centos                                            ", "  mod_ssl.x86_64 1:2.4.6-89.el7.centos                                          ", "  sas-cleanutils.x86_64 0:1.1.8-20180502.1525290347361                          ", "", "Dependency Installed:", "  apr.x86_64 0:1.4.8-3.el7_4.1                                                  ", "  apr-util.x86_64 0:1.5.2-6.el7                                                 ", "  centos-logos.noarch 0:70.0.6-3.el7.centos                                     ", "  httpd-tools.x86_64 0:2.4.6-89.el7.centos                                      ", "  mailcap.noarch 0:2.1.41-2.el7                                                 ", "", "Complete!"]}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Uninstall the SAS repository definitions] ******************
+task path: /ansible/roles/sas-install/tasks/main.yml:116  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Collect rpms] **********************************************
+task path: /ansible/roles/sas-install/tasks/main.yml:145  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Print out rpm fact] ****************************************
+task path: /ansible/roles/sas-install/tasks/main.yml:157  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Install SAS packages] **************************************
+task path: /ansible/roles/sas-install/tasks/main.yml:161  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Remove sas.repo file] **************************************
+task path: /ansible/roles/sas-install/tasks/main.yml:169  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "path": "/etc/yum.repos.d/sas.repo", "state": "absent"}  <nil>}
+
+[container.go:391] &{TASK [sas-install : Remove temporary directory {{ METAREPO_CERT_DIR }}] ********
+task path: /ansible/roles/sas-install/tasks/main.yml:175  <nil>}
+
+[container.go:391] &{skipping: [127.0.0.1] => {"changed": false, "skip_reason": "Conditional result was False"}  <nil>}
+
+[container.go:391] &{TASK [httpproxy : Check dir presence for entrypoint] ***************************
+task path: /ansible/roles/httpproxy/tasks/main.yml:13  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1] => {"changed": false, "gid": 0, "group": "root", "mode": "0755", "owner": "root", "path": "/opt/sas/viya/home/bin", "size": 6, "state": "directory", "uid": 0}  <nil>}
+
+[container.go:391] &{TASK [httpproxy : Copy over entrypoint script] *********************************
+task path: /ansible/roles/httpproxy/tasks/main.yml:18  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "checksum": "3230a6e065cf441fb40c257dfcac379fa2d7d0a7", "dest": "/opt/sas/viya/home/bin/httpproxy-entrypoint.sh", "gid": 1001, "group": "sas", "md5sum": "f2203b51b0587deeb2c9519c0ba0a23e", "mode": "0755", "owner": "sas", "size": 2821, "src": "/root/.ansible/tmp/ansible-tmp-1556649730.15-20172500301237/source", "state": "file", "uid": 1001}
+META: ran handlers  <nil>}
+
+[container.go:391] &{TASK [Remove the certs] ********************************************************
+task path: /ansible/playbook.yml:14  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using file module with state=absent rather than running rm
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "rm /ansible/SAS_CA_Certificate.pem /ansible/entitlement_certificate.pem", "delta": "0:00:00.596685", "end": "2019-04-30 18:42:11.083048", "rc": 0, "start": "2019-04-30 18:42:10.486363", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}  <nil>}
+
+[container.go:391] &{META: ran handlers
+
+PLAY RECAP *********************************************************************
+127.0.0.1                  : ok=14   changed=7    unreachable=0    failed=0  <nil>}
+
+[container.go:391] &{Removing intermediate container 69ff88141437  <nil>}
+
+[container.go:391] &{---> 1ddbf9fd15ae  <nil>}
+
+[container.go:391] &{Step 13/18 : RUN ansible-playbook -vv /ansible/playbook.yml --extra-vars layer=cloud-config --extra-vars PLAYBOOK_SRV=${PLAYBOOK_SRV}  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 80cc8bdf1f21  <nil>}
+
+[container.go:391] &{ansible-playbook 2.4.2.0
+  config file = /ansible/ansible.cfg
+  configured module search path = [u'/root/.ansible/plugins/modules', u'/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/lib/python2.7/site-packages/ansible
+  executable location = /usr/bin/ansible-playbook
+  python version = 2.7.5 (default, Oct 30 2018, 23:45:53) [GCC 4.8.5 20150623 (Red Hat 4.8.5-36)]
+Using /ansible/ansible.cfg as config file  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Could not match supplied host pattern, ignoring: all
+[0m  <nil>}
+
+[container.go:391] &{[91m [WARNING]: provided hosts list is empty, only localhost is available
+[0m  <nil>}
+
+[container.go:391] &{PLAYBOOK: playbook.yml *********************************************************
+1 plays in /ansible/playbook.yml  <nil>}
+
+[container.go:391] &{PLAY [Install a role that's included in the config.yml] ************************  <nil>}
+
+[container.go:391] &{TASK [Gathering Facts] *********************************************************  <nil>}
+
+[container.go:391] &{ok: [127.0.0.1]  <nil>}
+
+[container.go:391] &{TASK [Pull down the certs] *****************************************************
+task path: /ansible/playbook.yml:7  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using get_url or uri module rather than running curl
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "curl -o /ansible/SAS_CA_Certificate.pem http://sas-container-recipes-builder:1976/cacert/\n curl -o /ansible/entitlement_certificate.pem http://sas-container-recipes-builder:1976/entitlement/", "delta": "0:00:00.615321", "end": "2019-04-30 18:42:20.892979", "rc": 0, "start": "2019-04-30 18:42:20.277658", "stderr": "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  2155    0  2155    0     0   390k      0 --:--:-- --:--:-- --:--:--  420k\n  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current\n                                 Dload  Upload   Total   Spent    Left  Speed\n\r  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0\r100  3009    0  3009    0     0   576k      0 --:--:-- --:--:-- --:--:--  734k", "stderr_lines": ["  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  2155    0  2155    0     0   390k      0 --:--:-- --:--:-- --:--:--  420k", "  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current", "                                 Dload  Upload   Total   Spent    Left  Speed", "", "  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0", "100  3009    0  3009    0     0   576k      0 --:--:-- --:--:-- --:--:--  734k"], "stdout": "", "stdout_lines": []}
+META: ran handlers  <nil>}
+
+[container.go:391] &{TASK [cloud-config : Copy cloud config files to remote host] *******************
+task path: /ansible/roles/cloud-config/tasks/main.yml:4  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => (item={u'path': u'lib/envesntl', u'name': u'docker-functions', u'mode': u'0755'}) => {"changed": true, "checksum": "0f2ca0a0f5e0742aad3172d92f577324810b327c", "dest": "/opt/sas/viya/home/lib/envesntl/docker-functions", "gid": 1001, "group": "sas", "item": {"mode": "0755", "name": "docker-functions", "path": "lib/envesntl"}, "md5sum": "826f088ccd6d491cee23894633ab433a", "mode": "0755", "owner": "sas", "size": 8054, "src": "/root/.ansible/tmp/ansible-tmp-1556649740.94-111691649106443/source", "state": "file", "uid": 1001}  <nil>}
+
+[container.go:391] &{META: ran handlers  <nil>}
+
+[container.go:391] &{TASK [Remove the certs] ********************************************************
+task path: /ansible/playbook.yml:14  <nil>}
+
+[container.go:391] &{[91m [WARNING]: Consider using file module with state=absent rather than running rm
+[0m  <nil>}
+
+[container.go:391] &{changed: [127.0.0.1] => {"changed": true, "cmd": "rm /ansible/SAS_CA_Certificate.pem /ansible/entitlement_certificate.pem", "delta": "0:00:00.592580", "end": "2019-04-30 18:42:22.100133", "rc": 0, "start": "2019-04-30 18:42:21.507553", "stderr": "", "stderr_lines": [], "stdout": "", "stdout_lines": []}
+META: ran handlers  <nil>}
+
+[container.go:391] &{PLAY RECAP *********************************************************************  <nil>}
+
+[container.go:391] &{127.0.0.1                  : ok=4    changed=3    unreachable=0    failed=0  <nil>}
+
+[container.go:391] &{Removing intermediate container 80cc8bdf1f21  <nil>}
+
+[container.go:391] &{---> c6f82ba9ee31  <nil>}
+
+[container.go:391] &{Step 14/18 : VOLUME log=/opt/sas/viya/config/var/log  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 813e6cad0ead  <nil>}
+
+[container.go:391] &{Removing intermediate container 813e6cad0ead  <nil>}
+
+[container.go:391] &{---> 0b5f617081d4  <nil>}
+
+[container.go:391] &{Step 15/18 : EXPOSE 80:80  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 4108fe22ca4d  <nil>}
+
+[container.go:391] &{Removing intermediate container 4108fe22ca4d  <nil>}
+
+[container.go:391] &{---> f6b4b13fc382  <nil>}
+
+[container.go:391] &{Step 16/18 : EXPOSE 443:443  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 8d46615d6ed5  <nil>}
+
+[container.go:391] &{Removing intermediate container 8d46615d6ed5  <nil>}
+
+[container.go:391] &{---> 83aaa9ba33a7  <nil>}
+
+[container.go:391] &{Step 17/18 : ENTRYPOINT ["/usr/bin/tini", "--", "/opt/sas/viya/home/bin/httpproxy-entrypoint.sh"]  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 623dbebb59bd  <nil>}
+
+[container.go:391] &{Removing intermediate container 623dbebb59bd  <nil>}
+
+[container.go:391] &{---> 2b430aa8f038  <nil>}
+
+[container.go:391] &{Step 18/18 : LABEL sas.recipe="true"       sas.recipe.version="19.04.0"       sas.recipe.image="httpproxy"       sas.layer.httpproxy="true"  <nil>}
+
+[container.go:391] &{  <nil>}
+
+[container.go:391] &{---> Running in 0beabc189c3a  <nil>}
+
+[container.go:391] &{Removing intermediate container 0beabc189c3a  <nil>}
+
+[container.go:391] &{---> 3c9deb3187dc  <nil>}
+
+[container.go:391] &{---> 3c9deb3187dc  <nil>}
+
+[container.go:391] &{[Warning] One or more build-args [BASE SAS_RPM_REPO_URL] were not consumed  <nil>}
+
+[container.go:391] &{Successfully built 3c9deb3187dc  <nil>}
+
+[container.go:391] &{Successfully tagged docker.io:5000/davidff/sas-viya-httpproxy:19.04.0-20190430183857-8522290  <nil>}
+

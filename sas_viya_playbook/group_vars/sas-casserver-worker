@@ -1,0 +1,411 @@
+---
+sas_host_group_variables_sas-casserver-worker:
+  installables-x64_redhat_linux_6-yum:
+    ASTORE for EMBSCOREENG:
+      SERVICE_APP_NAME: ygeseastore
+      SERVICE_PRODUCT_NAME: ASTORE for EMBSCOREENG
+      SERVICE_YUM_GROUP: ASTORE for EMBSCOREENG
+    CAS for SAS Data Quality:
+      SERVICE_APP_NAME: ygdqcas
+      SERVICE_PRODUCT_NAME: CAS for SAS Data Quality
+      SERVICE_YUM_GROUP: CAS for SAS Data Quality
+    CAS for SAS Econometrics:
+      SERVICE_APP_NAME: ygeconcas
+      SERVICE_PRODUCT_NAME: CAS for SAS Econometrics
+      SERVICE_YUM_GROUP: CAS for SAS Econometrics
+    CAS for SAS Machine Learning:
+      SERVICE_APP_NAME: ygmlcas
+      SERVICE_PRODUCT_NAME: CAS for SAS Machine Learning
+      SERVICE_YUM_GROUP: CAS for SAS Machine Learning
+    CAS for SAS Optimization:
+      SERVICE_APP_NAME: ygoptcas
+      SERVICE_PRODUCT_NAME: CAS for SAS Optimization
+      SERVICE_YUM_GROUP: CAS for SAS Optimization
+    CAS for SAS Statistics:
+      SERVICE_APP_NAME: ygstatcas
+      SERVICE_PRODUCT_NAME: CAS for SAS Statistics
+      SERVICE_YUM_GROUP: CAS for SAS Statistics
+    CAS for SAS Visual Analytics:
+      SERVICE_APP_NAME: ygvacas
+      SERVICE_PRODUCT_NAME: CAS for SAS Visual Analytics
+      SERVICE_YUM_GROUP: CAS for SAS Visual Analytics
+    CAS for SAS Visual Forecasting:
+      SERVICE_APP_NAME: ygforcastcas
+      SERVICE_PRODUCT_NAME: CAS for SAS Visual Forecasting
+      SERVICE_YUM_GROUP: CAS for SAS Visual Forecasting
+    CAS for SAS Visual Text Analytics:
+      SERVICE_APP_NAME: ygvtacas
+      SERVICE_PRODUCT_NAME: CAS for SAS Visual Text Analytics
+      SERVICE_YUM_GROUP: CAS for SAS Visual Text Analytics
+    CUDA Library Support for SAS:
+      SERVICE_APP_NAME: yggpulib
+      SERVICE_PRODUCT_NAME: CUDA Library Support for SAS
+      SERVICE_YUM_GROUP: CUDA Library Support for SAS
+    SAS Data Connect Accelerator for Hadoop:
+      SERVICE_APP_NAME: ygcdfephive
+      SERVICE_PRODUCT_NAME: SAS Data Connect Accelerator for Hadoop
+      SERVICE_YUM_GROUP: SAS Data Connect Accelerator for Hadoop
+    SAS Data Connect Accelerator for Teradata:
+      SERVICE_APP_NAME: ygcdfeptera
+      SERVICE_PRODUCT_NAME: SAS Data Connect Accelerator for Teradata
+      SERVICE_YUM_GROUP: SAS Data Connect Accelerator for Teradata
+    SAS Data Connector to Amazon Redshift:
+      SERVICE_APP_NAME: ygcdfredshft
+      SERVICE_PRODUCT_NAME: SAS Data Connector to Amazon Redshift
+      SERVICE_YUM_GROUP: SAS Data Connector to Amazon Redshift
+    SAS Data Connector to DB2:
+      SERVICE_APP_NAME: ygcdfdb2
+      SERVICE_PRODUCT_NAME: SAS Data Connector to DB2
+      SERVICE_YUM_GROUP: SAS Data Connector to DB2
+    SAS Data Connector to Hadoop:
+      SERVICE_APP_NAME: ygcdfhive
+      SERVICE_PRODUCT_NAME: SAS Data Connector to Hadoop
+      SERVICE_YUM_GROUP: SAS Data Connector to Hadoop
+    SAS Data Connector to Impala:
+      SERVICE_APP_NAME: ygcdfimpl
+      SERVICE_PRODUCT_NAME: SAS Data Connector to Impala
+      SERVICE_YUM_GROUP: SAS Data Connector to Impala
+    SAS Data Connector to JDBC:
+      SERVICE_APP_NAME: ygcdfjdbc
+      SERVICE_PRODUCT_NAME: SAS Data Connector to JDBC
+      SERVICE_YUM_GROUP: SAS Data Connector to JDBC
+    SAS Data Connector to Microsoft SQL Server:
+      SERVICE_APP_NAME: ygcdfmssqlsv
+      SERVICE_PRODUCT_NAME: SAS Data Connector to Microsoft SQL Server
+      SERVICE_YUM_GROUP: SAS Data Connector to Microsoft SQL Server
+    SAS Data Connector to MySQL:
+      SERVICE_APP_NAME: ygcdfmysql
+      SERVICE_PRODUCT_NAME: SAS Data Connector to MySQL
+      SERVICE_YUM_GROUP: SAS Data Connector to MySQL
+    SAS Data Connector to ODBC:
+      SERVICE_APP_NAME: ygcdfodbc
+      SERVICE_PRODUCT_NAME: SAS Data Connector to ODBC
+      SERVICE_YUM_GROUP: SAS Data Connector to ODBC
+    SAS Data Connector to Oracle:
+      SERVICE_APP_NAME: ygcdforcl
+      SERVICE_PRODUCT_NAME: SAS Data Connector to Oracle
+      SERVICE_YUM_GROUP: SAS Data Connector to Oracle
+    SAS Data Connector to PC Files:
+      SERVICE_APP_NAME: ygcdfpcfl
+      SERVICE_PRODUCT_NAME: SAS Data Connector to PC Files
+      SERVICE_YUM_GROUP: SAS Data Connector to PC Files
+    SAS Data Connector to PostgreSQL:
+      SERVICE_APP_NAME: ygcdfpstg
+      SERVICE_PRODUCT_NAME: SAS Data Connector to PostgreSQL
+      SERVICE_YUM_GROUP: SAS Data Connector to PostgreSQL
+    SAS Data Connector to SAP Hana:
+      SERVICE_APP_NAME: ygcdfhana
+      SERVICE_PRODUCT_NAME: SAS Data Connector to SAP Hana
+      SERVICE_YUM_GROUP: SAS Data Connector to SAP Hana
+    SAS Data Connector to Teradata:
+      SERVICE_APP_NAME: ygcdftera
+      SERVICE_PRODUCT_NAME: SAS Data Connector to Teradata
+      SERVICE_YUM_GROUP: SAS Data Connector to Teradata
+    SAS Data Connector to Vertica:
+      SERVICE_APP_NAME: ygcdfvertica
+      SERVICE_PRODUCT_NAME: SAS Data Connector to Vertica
+      SERVICE_YUM_GROUP: SAS Data Connector to Vertica
+    SAS Text Analytics for Arabic:
+      SERVICE_APP_NAME: ygtxtminara
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Arabic
+      SERVICE_YUM_GROUP: SAS Text Analytics for Arabic
+    SAS Text Analytics for Chinese:
+      SERVICE_APP_NAME: ygtxtminzho
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Chinese
+      SERVICE_YUM_GROUP: SAS Text Analytics for Chinese
+    SAS Text Analytics for Croatian:
+      SERVICE_APP_NAME: ygtxtmincro
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Croatian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Croatian
+    SAS Text Analytics for Czech:
+      SERVICE_APP_NAME: ygtxtminczh
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Czech
+      SERVICE_YUM_GROUP: SAS Text Analytics for Czech
+    SAS Text Analytics for Danish:
+      SERVICE_APP_NAME: ygtxtmindan
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Danish
+      SERVICE_YUM_GROUP: SAS Text Analytics for Danish
+    SAS Text Analytics for Dutch:
+      SERVICE_APP_NAME: ygtxtmindut
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Dutch
+      SERVICE_YUM_GROUP: SAS Text Analytics for Dutch
+    SAS Text Analytics for Farsi:
+      SERVICE_APP_NAME: ygtxtminfar
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Farsi
+      SERVICE_YUM_GROUP: SAS Text Analytics for Farsi
+    SAS Text Analytics for Finnish:
+      SERVICE_APP_NAME: ygtxtminfin
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Finnish
+      SERVICE_YUM_GROUP: SAS Text Analytics for Finnish
+    SAS Text Analytics for French:
+      SERVICE_APP_NAME: ygtxtminfre
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for French
+      SERVICE_YUM_GROUP: SAS Text Analytics for French
+    SAS Text Analytics for German:
+      SERVICE_APP_NAME: ygtxtminger
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for German
+      SERVICE_YUM_GROUP: SAS Text Analytics for German
+    SAS Text Analytics for Greek:
+      SERVICE_APP_NAME: ygtxtmingrk
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Greek
+      SERVICE_YUM_GROUP: SAS Text Analytics for Greek
+    SAS Text Analytics for Hebrew:
+      SERVICE_APP_NAME: ygtxtminheb
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Hebrew
+      SERVICE_YUM_GROUP: SAS Text Analytics for Hebrew
+    SAS Text Analytics for Hindi:
+      SERVICE_APP_NAME: ygtxtminhin
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Hindi
+      SERVICE_YUM_GROUP: SAS Text Analytics for Hindi
+    SAS Text Analytics for Hungarian:
+      SERVICE_APP_NAME: ygtxtminhun
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Hungarian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Hungarian
+    SAS Text Analytics for Indonesian:
+      SERVICE_APP_NAME: ygtxtminind
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Indonesian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Indonesian
+    SAS Text Analytics for Italian:
+      SERVICE_APP_NAME: ygtxtminita
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Italian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Italian
+    SAS Text Analytics for Japanese:
+      SERVICE_APP_NAME: ygtxtminjap
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Japanese
+      SERVICE_YUM_GROUP: SAS Text Analytics for Japanese
+    SAS Text Analytics for Korean:
+      SERVICE_APP_NAME: ygtxtminkor
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Korean
+      SERVICE_YUM_GROUP: SAS Text Analytics for Korean
+    SAS Text Analytics for Norwegian:
+      SERVICE_APP_NAME: ygtxtminnor
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Norwegian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Norwegian
+    SAS Text Analytics for Polish:
+      SERVICE_APP_NAME: ygtxtminpol
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Polish
+      SERVICE_YUM_GROUP: SAS Text Analytics for Polish
+    SAS Text Analytics for Portuguese:
+      SERVICE_APP_NAME: ygtxtminpor
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Portuguese
+      SERVICE_YUM_GROUP: SAS Text Analytics for Portuguese
+    SAS Text Analytics for Romanian:
+      SERVICE_APP_NAME: ygtxtminrom
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Romanian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Romanian
+    SAS Text Analytics for Russian:
+      SERVICE_APP_NAME: ygtxtminrus
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Russian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Russian
+    SAS Text Analytics for Slovakian:
+      SERVICE_APP_NAME: ygtxtminsvk
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Slovakian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Slovakian
+    SAS Text Analytics for Slovenian:
+      SERVICE_APP_NAME: ygtxtminsvn
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Slovenian
+      SERVICE_YUM_GROUP: SAS Text Analytics for Slovenian
+    SAS Text Analytics for Spanish:
+      SERVICE_APP_NAME: ygtxtminspa
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Spanish
+      SERVICE_YUM_GROUP: SAS Text Analytics for Spanish
+    SAS Text Analytics for Swedish:
+      SERVICE_APP_NAME: ygtxtminswe
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Swedish
+      SERVICE_YUM_GROUP: SAS Text Analytics for Swedish
+    SAS Text Analytics for Tagalog:
+      SERVICE_APP_NAME: ygtxtmintag
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Tagalog
+      SERVICE_YUM_GROUP: SAS Text Analytics for Tagalog
+    SAS Text Analytics for Thai:
+      SERVICE_APP_NAME: ygtxtmintha
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Thai
+      SERVICE_YUM_GROUP: SAS Text Analytics for Thai
+    SAS Text Analytics for Turkish:
+      SERVICE_APP_NAME: ygtxtmintur
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Turkish
+      SERVICE_YUM_GROUP: SAS Text Analytics for Turkish
+    SAS Text Analytics for Vietnamese:
+      SERVICE_APP_NAME: ygtxtminvie
+      SERVICE_PRODUCT_NAME: SAS Text Analytics for Vietnamese
+      SERVICE_YUM_GROUP: SAS Text Analytics for Vietnamese
+    cleanutils:
+      SERVICE_APP_NAME: cleanutils
+      SERVICE_MEMORY_NEEDED: 32
+      SERVICE_PRODUCT_NAME: cleanutils
+      SERVICE_YUM_PACKAGE: sas-cleanutils
+    espbase:
+      SERVICE_APP_NAME: espbase
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: espbase
+      SERVICE_YUM_PACKAGE: sas-espbase
+    sasgpudcfg:
+      SERVICE_APP_NAME: sasgpudcfg
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: sasgpudcfg
+      SERVICE_YUM_PACKAGE: sas-sasgpudcfg
+    tkcas:
+      SERVICE_APP_NAME: tkcas
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: tkcas
+      SERVICE_YUM_PACKAGE: sas-tkcas
+    txtminara:
+      SERVICE_APP_NAME: txtminara
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminara
+      SERVICE_YUM_PACKAGE: sas-txtminara
+    txtmincro:
+      SERVICE_APP_NAME: txtmincro
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtmincro
+      SERVICE_YUM_PACKAGE: sas-txtmincro
+    txtminczh:
+      SERVICE_APP_NAME: txtminczh
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminczh
+      SERVICE_YUM_PACKAGE: sas-txtminczh
+    txtmindan:
+      SERVICE_APP_NAME: txtmindan
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtmindan
+      SERVICE_YUM_PACKAGE: sas-txtmindan
+    txtmindut:
+      SERVICE_APP_NAME: txtmindut
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtmindut
+      SERVICE_YUM_PACKAGE: sas-txtmindut
+    txtmineng:
+      SERVICE_APP_NAME: txtmineng
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtmineng
+      SERVICE_YUM_PACKAGE: sas-txtmineng
+    txtminfar:
+      SERVICE_APP_NAME: txtminfar
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminfar
+      SERVICE_YUM_PACKAGE: sas-txtminfar
+    txtminfin:
+      SERVICE_APP_NAME: txtminfin
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminfin
+      SERVICE_YUM_PACKAGE: sas-txtminfin
+    txtminfre:
+      SERVICE_APP_NAME: txtminfre
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminfre
+      SERVICE_YUM_PACKAGE: sas-txtminfre
+    txtminger:
+      SERVICE_APP_NAME: txtminger
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminger
+      SERVICE_YUM_PACKAGE: sas-txtminger
+    txtmingrk:
+      SERVICE_APP_NAME: txtmingrk
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtmingrk
+      SERVICE_YUM_PACKAGE: sas-txtmingrk
+    txtminheb:
+      SERVICE_APP_NAME: txtminheb
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminheb
+      SERVICE_YUM_PACKAGE: sas-txtminheb
+    txtminhin:
+      SERVICE_APP_NAME: txtminhin
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminhin
+      SERVICE_YUM_PACKAGE: sas-txtminhin
+    txtminhun:
+      SERVICE_APP_NAME: txtminhun
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminhun
+      SERVICE_YUM_PACKAGE: sas-txtminhun
+    txtminind:
+      SERVICE_APP_NAME: txtminind
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminind
+      SERVICE_YUM_PACKAGE: sas-txtminind
+    txtminita:
+      SERVICE_APP_NAME: txtminita
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminita
+      SERVICE_YUM_PACKAGE: sas-txtminita
+    txtminjap:
+      SERVICE_APP_NAME: txtminjap
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminjap
+      SERVICE_YUM_PACKAGE: sas-txtminjap
+    txtminkor:
+      SERVICE_APP_NAME: txtminkor
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminkor
+      SERVICE_YUM_PACKAGE: sas-txtminkor
+    txtminnor:
+      SERVICE_APP_NAME: txtminnor
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminnor
+      SERVICE_YUM_PACKAGE: sas-txtminnor
+    txtminpol:
+      SERVICE_APP_NAME: txtminpol
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminpol
+      SERVICE_YUM_PACKAGE: sas-txtminpol
+    txtminpor:
+      SERVICE_APP_NAME: txtminpor
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminpor
+      SERVICE_YUM_PACKAGE: sas-txtminpor
+    txtminrom:
+      SERVICE_APP_NAME: txtminrom
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminrom
+      SERVICE_YUM_PACKAGE: sas-txtminrom
+    txtminrus:
+      SERVICE_APP_NAME: txtminrus
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminrus
+      SERVICE_YUM_PACKAGE: sas-txtminrus
+    txtminspa:
+      SERVICE_APP_NAME: txtminspa
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminspa
+      SERVICE_YUM_PACKAGE: sas-txtminspa
+    txtminsvk:
+      SERVICE_APP_NAME: txtminsvk
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminsvk
+      SERVICE_YUM_PACKAGE: sas-txtminsvk
+    txtminsvn:
+      SERVICE_APP_NAME: txtminsvn
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminsvn
+      SERVICE_YUM_PACKAGE: sas-txtminsvn
+    txtminswe:
+      SERVICE_APP_NAME: txtminswe
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminswe
+      SERVICE_YUM_PACKAGE: sas-txtminswe
+    txtmintag:
+      SERVICE_APP_NAME: txtmintag
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtmintag
+      SERVICE_YUM_PACKAGE: sas-txtmintag
+    txtmintha:
+      SERVICE_APP_NAME: txtmintha
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtmintha
+      SERVICE_YUM_PACKAGE: sas-txtmintha
+    txtmintur:
+      SERVICE_APP_NAME: txtmintur
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtmintur
+      SERVICE_YUM_PACKAGE: sas-txtmintur
+    txtminvie:
+      SERVICE_APP_NAME: txtminvie
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminvie
+      SERVICE_YUM_PACKAGE: sas-txtminvie
+    txtminzho:
+      SERVICE_APP_NAME: txtminzho
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: txtminzho
+      SERVICE_YUM_PACKAGE: sas-txtminzho

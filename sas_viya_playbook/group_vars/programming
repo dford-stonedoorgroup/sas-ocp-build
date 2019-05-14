@@ -1,0 +1,171 @@
+---
+sas_host_group_variables_programming:
+  installables-x64_redhat_linux_6-yum:
+    Gold Layer YUM Group for SPRE:
+      SERVICE_APP_NAME: yggoldlayer1
+      SERVICE_PRODUCT_NAME: Gold Layer YUM Group for SPRE
+      SERVICE_YUM_GROUP: Gold Layer YUM Group for SPRE
+    SAS Configuration for Spawner:
+      SERVICE_APP_NAME: ygworkspace
+      SERVICE_PRODUCT_NAME: SAS Configuration for Spawner
+      SERVICE_YUM_GROUP: SAS Configuration for Spawner
+    SAS Econometrics:
+      SERVICE_APP_NAME: ygets1
+      SERVICE_PRODUCT_NAME: SAS Econometrics
+      SERVICE_YUM_GROUP: SAS Econometrics
+    SAS Enterprise Miner:
+      SERVICE_APP_NAME: ygem1
+      SERVICE_PRODUCT_NAME: SAS Enterprise Miner
+      SERVICE_YUM_GROUP: SAS Enterprise Miner
+    SAS Foundation for SAS Data Quality:
+      SERVICE_APP_NAME: ygdq
+      SERVICE_PRODUCT_NAME: SAS Foundation for SAS Data Quality
+      SERVICE_YUM_GROUP: SAS Foundation for SAS Data Quality
+    SAS Foundation for SAS Econometrics:
+      SERVICE_APP_NAME: ygecon
+      SERVICE_PRODUCT_NAME: SAS Foundation for SAS Econometrics
+      SERVICE_YUM_GROUP: SAS Foundation for SAS Econometrics
+    SAS Foundation for SAS Optimization:
+      SERVICE_APP_NAME: ygopt
+      SERVICE_PRODUCT_NAME: SAS Foundation for SAS Optimization
+      SERVICE_YUM_GROUP: SAS Foundation for SAS Optimization
+    SAS Foundation for SAS Visual Forecasting:
+      SERVICE_APP_NAME: ygforcast
+      SERVICE_PRODUCT_NAME: SAS Foundation for SAS Visual Forecasting
+      SERVICE_YUM_GROUP: SAS Foundation for SAS Visual Forecasting
+    SAS High Performance Procedures:
+      SERVICE_APP_NAME: yghpf1
+      SERVICE_PRODUCT_NAME: SAS High Performance Procedures
+      SERVICE_YUM_GROUP: SAS High Performance Procedures
+    SAS In-Database Technologies for Hadoop Map Reduce JAR File:
+      SERVICE_APP_NAME: yghadpmrjrs1
+      SERVICE_PRODUCT_NAME: SAS In-Database Technologies for Hadoop Map Reduce JAR File
+      SERVICE_YUM_GROUP: SAS In-Database Technologies for Hadoop Map Reduce JAR File
+    SAS Machine Learning:
+      SERVICE_APP_NAME: ygml
+      SERVICE_PRODUCT_NAME: SAS Machine Learning
+      SERVICE_YUM_GROUP: SAS Machine Learning
+    SAS Network Algorithms:
+      SERVICE_APP_NAME: yggraphcomp1
+      SERVICE_PRODUCT_NAME: SAS Network Algorithms
+      SERVICE_YUM_GROUP: SAS Network Algorithms
+    SAS Program Runtime Environment:
+      SERVICE_APP_NAME: ygspre1
+      SERVICE_PRODUCT_NAME: SAS Program Runtime Environment
+      SERVICE_YUM_GROUP: SAS Program Runtime Environment
+    SAS Statistics:
+      SERVICE_APP_NAME: ygstat
+      SERVICE_PRODUCT_NAME: SAS Statistics
+      SERVICE_YUM_GROUP: SAS Statistics
+    SAS Visual Text Analytics:
+      SERVICE_APP_NAME: ygvta
+      SERVICE_PRODUCT_NAME: SAS Visual Text Analytics
+      SERVICE_YUM_GROUP: SAS Visual Text Analytics
+    SAS/ACCESS Interface to Amazon Redshift (SPRE):
+      SERVICE_APP_NAME: ygredshift1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to Amazon Redshift (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to Amazon Redshift (SPRE)
+    SAS/ACCESS Interface to DB2 (SPRE):
+      SERVICE_APP_NAME: ygdb21
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to DB2 (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to DB2 (SPRE)
+    SAS/ACCESS Interface to Hadoop (SPRE):
+      SERVICE_APP_NAME: yghadoop1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to Hadoop (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to Hadoop (SPRE)
+    SAS/ACCESS Interface to Impala (SPRE):
+      SERVICE_APP_NAME: ygimpala1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to Impala (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to Impala (SPRE)
+    SAS/ACCESS Interface to JDBC (SPRE):
+      SERVICE_APP_NAME: ygjdbc1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to JDBC (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to JDBC (SPRE)
+    SAS/ACCESS Interface to Microsoft SQL Server (SPRE):
+      SERVICE_APP_NAME: ygmssqlsvr1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to Microsoft SQL Server (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to Microsoft SQL Server (SPRE)
+    SAS/ACCESS Interface to MySQL (SPRE):
+      SERVICE_APP_NAME: ygmysql1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to MySQL (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to MySQL (SPRE)
+    SAS/ACCESS Interface to ODBC (SPRE):
+      SERVICE_APP_NAME: ygodbc1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to ODBC (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to ODBC (SPRE)
+    SAS/ACCESS Interface to Oracle (SPRE):
+      SERVICE_APP_NAME: ygoracle1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to Oracle (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to Oracle (SPRE)
+    SAS/ACCESS Interface to PC Files (SPRE):
+      SERVICE_APP_NAME: ygpcfile1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to PC Files (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to PC Files (SPRE)
+    SAS/ACCESS Interface to PostgreSQL (SPRE):
+      SERVICE_APP_NAME: ygpostgres1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to PostgreSQL (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to PostgreSQL (SPRE)
+    SAS/ACCESS Interface to SAP ASE (SPRE):
+      SERVICE_APP_NAME: ygsapase1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to SAP ASE (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to SAP ASE (SPRE)
+    SAS/ACCESS Interface to SAP Hana (SPRE):
+      SERVICE_APP_NAME: ygsaphana1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to SAP Hana (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to SAP Hana (SPRE)
+    SAS/ACCESS Interface to Teradata (SPRE):
+      SERVICE_APP_NAME: ygteradata1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to Teradata (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to Teradata (SPRE)
+    SAS/ACCESS Interface to Vertica (SPRE):
+      SERVICE_APP_NAME: ygvertica1
+      SERVICE_PRODUCT_NAME: SAS/ACCESS Interface to Vertica (SPRE)
+      SERVICE_YUM_GROUP: SAS/ACCESS Interface to Vertica (SPRE)
+    SAS/CONNECT:
+      SERVICE_APP_NAME: ygconnect
+      SERVICE_PRODUCT_NAME: SAS/CONNECT
+      SERVICE_YUM_GROUP: SAS/CONNECT
+    SAS/GRAPH:
+      SERVICE_APP_NAME: ygmapsgfk1
+      SERVICE_PRODUCT_NAME: SAS/GRAPH
+      SERVICE_YUM_GROUP: SAS/GRAPH
+    SAS/IML:
+      SERVICE_APP_NAME: ygiml1
+      SERVICE_PRODUCT_NAME: SAS/IML
+      SERVICE_YUM_GROUP: SAS/IML
+    SAS/OR:
+      SERVICE_APP_NAME: ygor1
+      SERVICE_PRODUCT_NAME: SAS/OR
+      SERVICE_YUM_GROUP: SAS/OR
+    SAS/QC:
+      SERVICE_APP_NAME: ygqc1
+      SERVICE_PRODUCT_NAME: SAS/QC
+      SERVICE_YUM_GROUP: SAS/QC
+    SAS/STAT:
+      SERVICE_APP_NAME: ygstat1
+      SERVICE_PRODUCT_NAME: SAS/STAT
+      SERVICE_YUM_GROUP: SAS/STAT
+    YUM Group for SAS Data Quality Accelerator for Teradata (SPRE):
+      SERVICE_APP_NAME: ygdqacctera1
+      SERVICE_PRODUCT_NAME: YUM Group for SAS Data Quality Accelerator for Teradata (SPRE)
+      SERVICE_YUM_GROUP: YUM Group for SAS Data Quality Accelerator for Teradata (SPRE)
+    basecfg1:
+      SERVICE_APP_NAME: basecfg1
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: basecfg1
+      SERVICE_YUM_PACKAGE: sas-basecfg1
+    cleanutils:
+      SERVICE_APP_NAME: cleanutils
+      SERVICE_MEMORY_NEEDED: 32
+      SERVICE_PRODUCT_NAME: cleanutils
+      SERVICE_YUM_PACKAGE: sas-cleanutils
+    sasstudio:
+      SERVICE_APP_NAME: sasstudio
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: sasstudio
+      SERVICE_YUM_PACKAGE: sas-sasstudio
+    spawnercfg:
+      SERVICE_APP_NAME: spawnercfg
+      SERVICE_MEMORY_NEEDED: 12000
+      SERVICE_PRODUCT_NAME: spawnercfg
+      SERVICE_YUM_PACKAGE: sas-spawnercfg

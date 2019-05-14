@@ -1,0 +1,7 @@
+---
+# file: stop-viya-foundation-services.yml
+
+- include: sasstudio.yml sas_task_file=conditional-stop.yml
+- include: spawner.yml sas_task_file=conditional-stop.yml
+- include: connect.yml sas_task_file=conditional-stop.yml
+...

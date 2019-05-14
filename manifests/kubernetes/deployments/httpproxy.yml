@@ -1,0 +1,37 @@
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: sas-viya-httpproxy
+spec:
+  serviceName: "sas-viya-httpproxy"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sas-viya-httpproxy
+    spec:
+      containers:
+      - name: sas-viya-httpproxy
+        image: docker.io:5000/davidff/sas-viya-httpproxy:19.04.0-20190430183857-8522290
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+        env:
+        - name: DEPLOYMENT_NAME
+          value: "sas-viya"
+        resources:
+          requests:
+            memory: 250Mi
+          limits:
+            memory: 1024Mi
+        volumeMounts:
+        # Writing out pre-defined volume mounts
+        - name: sas-viya-httpproxy-log-volume
+          mountPath: /opt/sas/viya/config/var/log
+      volumes:
+      # Writing out pre-defined volumes
+      - name: sas-viya-httpproxy-log-volume
+        emptyDir: {}
+...

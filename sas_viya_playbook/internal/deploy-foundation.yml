@@ -1,0 +1,34 @@
+---
+# file: deploy-foundation.yml
+
+# Make sure the license is present
+- include: "{{ 'validate-license.yml' }}"
+  when: license_complete is not defined
+
+###############################################################################
+# Deploy the SAS Viya environment
+- name: "Multi Machine: Deploy Viya"
+  hosts: programming:ComputeServer
+  become: false
+
+  vars_files:
+    - ../vars.yml
+
+  pre_tasks:
+    - include_vars: "{{ item }}"
+      with_first_found:
+        - "{{ orchestration_root }}/soe.yml"
+        - "{{ orchestration_root }}/internal/soe_defaults.yml"
+  roles:
+    - ecosystem-users
+    - foundation-license
+    - foundation-config
+###############################################################################
+
+# Marking Spawner first so that it will load the cluster definitions file.
+- include: spawner.yml
+- include: batchserver.yml
+- include: computeserver.yml
+- include: connect.yml
+- include: sasstudio.yml
+...

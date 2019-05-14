@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "0"
+    nginx.ingress.kubernetes.io/server-snippet: |
+      gzip off;
+  name: sas-viya-programming-ingress
+  namespace: sas-viya
+spec:
+  rules:
+  - host: sas-viya.sas-viya.company.com
+    http:
+      paths:
+      - backend:
+          serviceName: sas-viya-httpproxy
+          servicePort: 80
+#  tls:
+#  - hosts:
+#    - sas-viya.sas-viya.company.com
+#    secretName: @REPLACE_ME_WITH_YOUR_CERT@

@@ -1,0 +1,7 @@
+---
+# defaults file for foundation-config
+
+sas_install_dir: "{{ SASROOT + '/' + SPRE_DEPLOYMENT_ID + '/home/SASFoundation' }}"
+
+consumer_items: {}
+...

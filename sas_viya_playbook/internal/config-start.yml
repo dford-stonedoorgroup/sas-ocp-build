@@ -1,0 +1,4 @@
+---
+- include: espbase-x64_redhat_linux_6-yum.yml
+- include: httpd-x64_redhat_linux_6-yum.yml
+- include: sasgpudcfg-x64_redhat_linux_6-yum.yml

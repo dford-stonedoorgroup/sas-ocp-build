@@ -1,0 +1,22 @@
+---
+- name: Verify the presence of the remove-obsolete script
+  become: yes
+  become_user: "{{ INSTALL_USER }}"
+  stat:
+    path: "{{ SASHOME }}/libexec/deployment/removals.sh"
+  register: remove_obsolete
+
+- name: Verify the presence of the remove data
+  become: yes
+  become_user: "{{ INSTALL_USER }}"
+  stat:
+    path: "{{ SASHOME }}/libexec/deployment/removes.txt"
+  register: remove_data
+
+- name: Run the remove-obsolete script
+  become: yes
+  become_user: root
+  shell: "{{ SASHOME }}/libexec/deployment/removals.sh {{ SASHOME }}/libexec/deployment/removes.txt"
+  when: remove_obsolete is defined and remove_obsolete.stat is defined and remove_obsolete.stat.exists is defined and remove_obsolete.stat.exists == true
+        and remove_data is defined and remove_data.stat is defined and remove_data.stat.exists is defined and remove_data.stat.exists == true
+...

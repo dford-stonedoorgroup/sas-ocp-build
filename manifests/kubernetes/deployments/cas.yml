@@ -1,0 +1,94 @@
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: sas-viya-cas
+spec:
+  serviceName: "sas-viya-cas"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sas-viya-cas
+    spec:
+      containers:
+      - name: sas-viya-cas
+        image: docker.io:5000/davidff/sas-viya-sas-casserver-primary:19.04.0-20190430183857-8522290
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 5570
+        - containerPort: 5571
+        - containerPort: 8777
+        env:
+        - name: DEPLOYMENT_NAME
+          value: "sas-viya"
+        - name: SERVICE_NAME
+          value: "cascontroller"
+        # Writing out pre-defined variables
+        - name: CASENV_ADMIN_USER
+          valueFrom:
+            configMapKeyRef:
+              name: sas-viya-cas
+              key: casenv_admin_user
+        - name: CASENV_CAS_VIRTUAL_PROTO
+          valueFrom:
+            configMapKeyRef:
+              name: sas-viya-cas
+              key: casenv_cas_virtual_proto
+        - name: CASENV_CAS_VIRTUAL_HOST
+          valueFrom:
+            configMapKeyRef:
+              name: sas-viya-cas
+              key: casenv_cas_virtual_host
+        - name: CASENV_CASDATADIR
+          valueFrom:
+            configMapKeyRef:
+              name: sas-viya-cas
+              key: casenv_casdatadir
+        - name: CASENV_CASPERMSTORE
+          valueFrom:
+            configMapKeyRef:
+              name: sas-viya-cas
+              key: casenv_caspermstore
+        - name: CASCFG_MODE
+          valueFrom:
+            configMapKeyRef:
+              name: sas-viya-cas
+              key: cascfg_mode
+        # Writing out pre-defined secrets
+        - name: SETINIT_TEXT
+          valueFrom:
+            secretKeyRef:
+              name: sas-viya-cas
+              key: setinit_text_enc
+        - name: CASKEY
+          valueFrom:
+            secretKeyRef:
+              name: sas-viya-cas
+              key: caskey
+        resources:
+          requests:
+            memory: 1024Mi
+          limits:
+            memory: 12000Mi
+        volumeMounts:
+        # Writing out pre-defined volume mounts
+        - name: sas-viya-cas-data-volume
+          mountPath: /cas/data
+        - name: sas-viya-cas-cache-volume
+          mountPath: /cas/cache
+        - name: sas-viya-cas-permstore-volume
+          mountPath: /cas/permstore
+        - name: sas-viya-cas-log-volume
+          mountPath: /opt/sas/viya/config/var/log
+      volumes:
+      # Writing out pre-defined volumes
+      - name: sas-viya-cas-data-volume
+        emptyDir: {}
+      - name: sas-viya-cas-cache-volume
+        emptyDir: {}
+      - name: sas-viya-cas-permstore-volume
+        emptyDir: {}
+      - name: sas-viya-cas-log-volume
+        emptyDir: {}
+...

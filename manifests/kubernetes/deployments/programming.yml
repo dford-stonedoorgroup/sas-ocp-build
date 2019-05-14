@@ -1,0 +1,42 @@
+---
+apiVersion: apps/v1beta1
+kind: StatefulSet
+metadata:
+  name: sas-viya-programming
+spec:
+  serviceName: "sas-viya-programming"
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: sas-viya-programming
+    spec:
+      containers:
+      - name: sas-viya-programming
+        image: docker.io:5000/davidff/sas-viya-programming:19.04.0-20190430183857-8522290
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 7080
+        env:
+        - name: DEPLOYMENT_NAME
+          value: "sas-viya"
+        # Writing out pre-defined secrets
+        - name: SETINIT_TEXT
+          valueFrom:
+            secretKeyRef:
+              name: sas-viya-programming
+              key: setinit_text_enc
+        resources:
+          requests:
+            memory: 512Mi
+          limits:
+            memory: 12000Mi
+        volumeMounts:
+        # Writing out pre-defined volume mounts
+        - name: sas-viya-programming-log-volume
+          mountPath: /opt/sas/viya/config/var/log
+      volumes:
+      # Writing out pre-defined volumes
+      - name: sas-viya-programming-log-volume
+        emptyDir: {}
+...

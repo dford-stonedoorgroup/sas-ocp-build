@@ -13,8 +13,8 @@ spec:
     spec:
       containers:
       - name: sas-viya-httpproxy
-        image: docker.io:5000/davidff/sas-viya-httpproxy:19.04.0-20190430183857-8522290
-        imagePullPolicy: Always
+        image: docker.io:5000/davidff/sas-viya-httpproxy:sas_demo
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 80
         - containerPort: 443

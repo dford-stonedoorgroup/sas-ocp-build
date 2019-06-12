@@ -1,0 +1,13 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: sas-viya-programming
+data:
+  spawner_usermods.sh: |
+    # JREOPTIONS will be processed and passed directly to the Object Spawner if active
+    JREOPTIONS=
+ 
+    # The following options are passed to the Object Spawner. Note, they must be
+    # valid options.
+    USERMODS="$JREOPTIONS -allowxcmd"

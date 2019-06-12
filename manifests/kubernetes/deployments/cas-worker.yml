@@ -12,8 +12,8 @@ spec:
     spec:
       containers:
       - name: sas-viya-cas-worker
-        image: docker.io:5000/davidff/sas-viya-sas-casserver-primary:19.04.0-20190430183857-8522290
-        imagePullPolicy: Always
+        image: docker.io:5000/davidff/sas-viya-sas-casserver-primary:sas_demo
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 5570
         - containerPort: 5571

@@ -13,8 +13,8 @@ spec:
     spec:
       containers:
       - name: sas-viya-programming
-        image: docker.io:5000/davidff/sas-viya-programming:19.04.0-20190430183857-8522290
-        imagePullPolicy: Always
+        image: docker.io:5000/davidff/sas-viya-programming-init:sas_demo
+        imagePullPolicy: IfNotPresent
         ports:
         - containerPort: 7080
         env:

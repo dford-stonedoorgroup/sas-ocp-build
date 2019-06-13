@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/server-snippet: |
       gzip off;
   name: sas-viya-programming-ingress
-  namespace: sas-viya
+#  namespace: sas-viya
 spec:
   rules:
   - host: sas-viya.sas-viya.company.com
